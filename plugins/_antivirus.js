@@ -9,9 +9,25 @@ export async function before(m, { conn, isAdmin, isBotAdmin }) {
     const isAntiVirtex = isVirtex.exec(m.text)
     
     if (chat.antiVirtex && isAntiVirtex) {
-            if (!m.isBaileys && m.text.length > 384) return !0
-            if (m.text && m.text.length >= 25000) return !0
-            if (m.messageStubType === 68) return !0
+    if (m.message && m.isBaileys && m.quoted && m.quoted.mtype === 'orderMessage' && !(m.quoted.token && m.quoted.orderId)) {
+            m.reply('Bug Troli Detected\n\n' + require('util').format(m.key))
+            await this.clearMessage(m.chat, m.key)
+            await this.modifyChat(m.chat, 'clear', {
+                includeStarred: false
+            }).catch(console.log)
+        }
+            if (!m.isBaileys && m.text.length > 384)
+            if (m.text && m.text.length >= 25000)
+            if (m.messageStubType === 68) { //Auto clear jika terdapat pesan yg tidak dapat dilihat oleh whatsapp web
+        let log = {
+            key: m.key,
+            content: m.msg,
+            sender: m.sender
+        }
+        await this.modifyChat(m.chat, 'clear', {
+            includeStarred: false
+        }).catch(console.log)
+    }
         await conn.sendButton(m.chat, `*Font Aneh detect!*${isBotAdmin ? '' : '\n\n_Bot bukan admin_'}`, author, ['off antivirtex', '/disable antivirtex'], m)
         if (isBotAdmin && bot.restrict) {
        return m.reply('Ok!')

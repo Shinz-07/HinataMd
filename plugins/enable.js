@@ -21,7 +21,9 @@ let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentM
 	{title: "🗿 | AntiSatir", rowId: `${usedPrefix + command} antisatir`},
 	{title: "⏏️ | AutoLevelup", rowId: `${usedPrefix + command} autolevelup`},
 	{title: "🎙️️ | AutoVn", rowId: `${usedPrefix + command} autovn`},
+	{title: "🎙️️ | AutoDelVn", rowId: `${usedPrefix + command} autodelvn`},
 	{title: "📷 | AutoSticker", rowId: `${usedPrefix + command} autosticker`},
+	{title: "❗ | AntiSticker", rowId: `${usedPrefix + command} antisticker`},
 	{title: "👤 | AutoJoin", rowId: `${usedPrefix + command} autojoin`},
 	{title: "🔎 | Detect", rowId: `${usedPrefix + command} detect`},
 	{title: "📑 | Document", rowId: `${usedPrefix + command} document`},
@@ -205,6 +207,15 @@ const listMessage = {
           throw false
         }
       chat.autoSticker = isEnable
+      break
+      case 'antisticker':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.antiS3ticker = isEnable
       break
       case 'autojoin':
         if (!isROwner) {
