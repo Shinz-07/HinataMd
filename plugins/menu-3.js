@@ -33,6 +33,8 @@ _Jika Respon Tidak Muncul Kemungkinan Terjadi Error_
 `,
 }
 let handler = async (m, { conn, command, groupMetadata, usedPrefix: _p, __dirname, args }) => {
+let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
+
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let { exp, limit, level, role, money, lastclaim, lastweekly, registered, regTime, age, banned, pasangan } = global.db.data.users[who]
@@ -268,7 +270,8 @@ const listMessage = {
   sections
 }
   if (teks == '404') {
-  	return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(tek), contextInfo: {forwardingScore: 99999, isForwarded: true, externalAdReply: {showAdAttribution: true, title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}})
+  return conn.sendMessage(m.chat, listMessage, { quoted: fdoc, mentions: await conn.parseMention(tek) })
+  	// return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(tek), contextInfo: {forwardingScore: 99999, isForwarded: true, externalAdReply: {showAdAttribution: true, title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}})
     }
     
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
