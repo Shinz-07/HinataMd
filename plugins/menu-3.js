@@ -34,8 +34,6 @@ _Jika Respon Tidak Muncul Kemungkinan Terjadi Error_
 }
 let handler = async (m, { conn, command, groupMetadata, usedPrefix: _p, __dirname, args }) => {
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
-
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let { exp, limit, level, role, money, lastclaim, lastweekly, registered, regTime, age, banned, pasangan } = global.db.data.users[who]
     let { min, xp, max } = xpRange(level, global.multiplier)
@@ -212,40 +210,40 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
    {
 	title: `${htki} MENU ${htka}`,
 	rows: [
-	{title: `${emot} Absen ${emot}`, rowId: ".menu3 absen", description: desk},
-	{title: `${emot} Admin ${emot}`, rowId: ".menu3 admin", description: desk},
-	{title: `${emot} Advanced ${emot}`, rowId: ".menu3 advanced", description: desk},
-	{title: `${emot} Anonymous ${emot}`, rowId: ".menu3 anonymous", description: desk},
-	{title: `${emot} Audio ${emot}`, rowId: ".menu3 audio", description: desk},
-	{title: `${emot} Baileys ${emot}`, rowId: ".menu3 Baileys", description: desk},
-	{title: `${emot} Database ${emot}`, rowId: ".menu3 database", description: desk},
-	{title: `${emot} Downloader ${emot}`, rowId: ".menu3 downloader", description: desk},
-	{title: `${emot} Edukasi ${emot}`, rowId: ".menu3 edukasi", description: desk},
-	{title: `${emot} Fun ${emot}`, rowId: ".menu3 fun", description: desk},
-	{title: `${emot} Game ${emot}`, rowId: ".menu3 game", description: desk},
-	{title: `${emot} Group ${emot}`, rowId: ".menu3 group", description: desk},
-	{title: `${emot} Host ${emot}`, rowId: ".menu3 host", description: desk},
-	{title: `${emot} Info ${emot}`, rowId: ".menu3 info", description: desk},
-	{title: `${emot} Internet ${emot}`, rowId: ".menu3 internet", description: desk},
-	{title: `${emot} Jadian ${emot}`, rowId: ".menu3 jadian", description: desk},
-	{title: `${emot} Jadibot ${emot}`, rowId: ".menu3 jadibot", description: desk},
-	{title: `${emot} Kerang ${emot}`, rowId: ".menu3 kerang", description: desk},
-	{title: `${emot} Main ${emot}`, rowId: ".menu3 main", description: desk},
-	{title: `${emot} Maker ${emot}`, rowId: ".menu3 maker", description: desk},
-	{title: `${emot} Nocategory ${emot}`, rowId: ".menu3 nocategory", description: desk},
-	{title: `${emot} Nsfw ${emot}`, rowId: ".menu3 nsfw", description: desk},
-	{title: `${emot} Nulis ${emot}`, rowId: ".menu3 nulis", description: desk},
-	{title: `${emot} Owner ${emot}`, rowId: ".menu3 owner", description: desk},
-	{title: `${emot} Premium ${emot}`, rowId: ".menu3 premium", description: desk},
-	{title: `${emot} Primbon ${emot}`, rowId: ".menu3 primbon", description: desk},
-	{title: `${emot} Quotes ${emot}`, rowId: ".menu3 quotes", description: desk},
-	{title: `${emot} Quran ${emot}`, rowId: ".menu3 quran", description: desk},
-	{title: `${emot} Random ${emot}`, rowId: ".menu3 random", description: desk},
-	{title: `${emot} RPG ${emot}`, rowId: ".menu3 rpg", description: desk},
-	{title: `${emot} Sticker ${emot}`, rowId: ".menu3 sticker", description: desk},
-	{title: `${emot} Tools ${emot}`, rowId: ".menu3 tools", description: desk},
-	{title: `${emot} Vote ${emot}`, rowId: ".menu3 vote", description: desk},
-	{title: `${emot} XP ${emot}`, rowId: ".menu3 xp", description: desk}
+	{title: `${emot} Absen ${emot}`, rowId: ".menulist absen", description: desk},
+	{title: `${emot} Admin ${emot}`, rowId: ".menulist admin", description: desk},
+	{title: `${emot} Advanced ${emot}`, rowId: ".menulist advanced", description: desk},
+	{title: `${emot} Anonymous ${emot}`, rowId: ".menulist anonymous", description: desk},
+	{title: `${emot} Audio ${emot}`, rowId: ".menulist audio", description: desk},
+	{title: `${emot} Baileys ${emot}`, rowId: ".menulist Baileys", description: desk},
+	{title: `${emot} Database ${emot}`, rowId: ".menulist database", description: desk},
+	{title: `${emot} Downloader ${emot}`, rowId: ".menulist downloader", description: desk},
+	{title: `${emot} Edukasi ${emot}`, rowId: ".menulist edukasi", description: desk},
+	{title: `${emot} Fun ${emot}`, rowId: ".menulist fun", description: desk},
+	{title: `${emot} Game ${emot}`, rowId: ".menulist game", description: desk},
+	{title: `${emot} Group ${emot}`, rowId: ".menulist group", description: desk},
+	{title: `${emot} Host ${emot}`, rowId: ".menulist host", description: desk},
+	{title: `${emot} Info ${emot}`, rowId: ".menulist info", description: desk},
+	{title: `${emot} Internet ${emot}`, rowId: ".menulist internet", description: desk},
+	{title: `${emot} Jadian ${emot}`, rowId: ".menulist jadian", description: desk},
+	{title: `${emot} Jadibot ${emot}`, rowId: ".menulist jadibot", description: desk},
+	{title: `${emot} Kerang ${emot}`, rowId: ".menulist kerang", description: desk},
+	{title: `${emot} Main ${emot}`, rowId: ".menulist main", description: desk},
+	{title: `${emot} Maker ${emot}`, rowId: ".menulist maker", description: desk},
+	{title: `${emot} Nocategory ${emot}`, rowId: ".menulist nocategory", description: desk},
+	{title: `${emot} Nsfw ${emot}`, rowId: ".menulist nsfw", description: desk},
+	{title: `${emot} Nulis ${emot}`, rowId: ".menulist nulis", description: desk},
+	{title: `${emot} Owner ${emot}`, rowId: ".menulist owner", description: desk},
+	{title: `${emot} Premium ${emot}`, rowId: ".menulist premium", description: desk},
+	{title: `${emot} Primbon ${emot}`, rowId: ".menulist primbon", description: desk},
+	{title: `${emot} Quotes ${emot}`, rowId: ".menulist quotes", description: desk},
+	{title: `${emot} Quran ${emot}`, rowId: ".menulist quran", description: desk},
+	{title: `${emot} Random ${emot}`, rowId: ".menulist random", description: desk},
+	{title: `${emot} RPG ${emot}`, rowId: ".menulist rpg", description: desk},
+	{title: `${emot} Sticker ${emot}`, rowId: ".menulist sticker", description: desk},
+	{title: `${emot} Tools ${emot}`, rowId: ".menulist tools", description: desk},
+	{title: `${emot} Vote ${emot}`, rowId: ".menulist vote", description: desk},
+	{title: `${emot} XP ${emot}`, rowId: ".menulist xp", description: desk}
 	]
   },
 ]
@@ -270,7 +268,7 @@ const listMessage = {
   sections
 }
   if (teks == '404') {
-  return conn.sendMessage(m.chat, listMessage, { quoted: fdoc, mentions: await conn.parseMention(tek) })
+  return conn.sendMessage(m.chat, listMessage, { quoted: fdoc })
   	// return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(tek), contextInfo: {forwardingScore: 99999, isForwarded: true, externalAdReply: {showAdAttribution: true, title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}})
     }
     
@@ -431,9 +429,9 @@ const listMessage = {
     throw e
   }
 }
-handler.help = ['menu3']
+handler.help = ['menulist']
 handler.tags = ['main']
-handler.command = /^(cobak|menu3)$/i
+handler.command = /^(menu3|menulist)$/i
 
 handler.exp = 3
 
