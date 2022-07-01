@@ -276,8 +276,61 @@ if (command == 'tafsirsurahx') {
 ( Q.S ${res.result.data.surah.name.transliteration.id} : ${res.result.data.number.inSurah} )`
 		m.reply(txt)
 		}
+		
+if (command == 'character') {
+  if (!text) throw `Masukkan query!`
+  let res = await fetch(global.API('https://api.jikan.moe', '/v3/search/character', { q: text }))
+  if (!res.ok) throw await res.text()
+  let json = await res.json()
+  let { name, alternative_names, url, image_url, type } = json.results[0]
+let charaingfo = `💬 *Name:* ${name}
+💭 *Nickname:* ${alternative_names}
+🔗 *Link*: ${url}
+👤 *Character Type*: ${type}`
+await conn.sendButton(m.chat, charaingfo, wm, image_url, [
+                ['Menu', `${usedPrefix}menu`]
+            ], m, fdoc)
+  // conn.sendFile(m.chat, image_url, '', charaingfo, m)
 }
-handler.command = handler.help = ['gqr', 'catboys', 'animals', 'nekos', 'crafatar', 'crafatar2', 'crafatar3', 'crafatar4', 'crafatar5', 'lmsea', 'iqrax', 'juzammax', 'hadistx', 'alquranx', 'tafsirsurahx']
+
+if (command == 'getsider') {
+  if (!m.quoted) throw 'Reply pesan!'
+  if (!m.quoted.fromMe) throw false
+  if (!m.quoted.id) throw false
+  let members = m.quoted.chat.endsWith('g.us') ? (await conn.groupMetadata(m.quoted.chat)).participants.length - 1 : m.quoted.chat.endsWith('@broadcast') ? -1 : 1
+  let { reads, deliveries } = await conn.messageInfo(m.quoted.chat, m.quoted.id)
+  let txt = `
+*Read by:*
+${reads.sort((a, b) => b.t - a.t).map(({ jid, t }) => `@${jid.split`@`[0]}\n_${formatDate(t * 1000)}_`).join('\n')}
+${members > 1 ? `${members - reads.length} remaining` : ''}
+
+*Delivered to:*
+${deliveries.sort((a, b) => b.t - a.t).map(({ jid, t }) => `wa.me/${jid.split`@`[0]}\n_${formatDate(t * 1000)}_`).join('\n')}
+${members > 1 ? `${members - reads.length - deliveries.length} remaining` : ''}
+`.trim()
+  m.reply(txt, null, {
+    contextInfo: {
+      mentionedJid: conn.parseMention(txt)
+    }
+  })
+}
+
+}
+handler.command = handler.help = ['gqr', 'catboys', 'animals', 'nekos', 'crafatar', 'crafatar2', 'crafatar3', 'crafatar4', 'crafatar5', 'lmsea', 'iqrax', 'juzammax', 'hadistx', 'alquranx', 'tafsirsurahx', 'character', 'getsider']
 handler.tags = ['random']
 
 export default handler
+
+function formatDate(n, locale = 'id') {
+  let d = new Date(n)
+  return d.toLocaleDateString(locale, {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  })
+}
+

@@ -9,7 +9,17 @@ let toM = a => '@' + a.split('@')[0]
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
-  
+
+let q = m.quoted ? m.quoted : m
+  let mime = (q.msg || q).mimetype || ''
+  if (!mime) throw 'Fotonya Mana?'
+  if (!/image\/(jpe?g|png)/.test(mime)) throw `Tipe ${mime} tidak didukung!`
+    if (!text) return m.reply(`Balas gambar dengan perintah
+    ${usedPrefix + command} teks`)
+    
+    let img = await q.download?.()
+    let url = await uploadImage(img)
+    
 if (command == 'twittdl') {
 if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} https://twitter.com/PassengersMovie/status/821025484150423557`
 
@@ -317,9 +327,7 @@ await conn.sendButton(m.chat, caption, wm, x.image, [
 if (command == 'popdrip') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
 
-let who = m.mentionedJid?.[0] || m.quoted?.sender || m.sender
-let avatar = await conn.profilePictureUrl(who, 'image')
-let drip = `https://api.popcat.xyz/drip?image=${avatar}`
+let drip = `https://api.popcat.xyz/drip?image=${url}`
 
 let caption = `*title:* ${text}
 `
@@ -331,9 +339,7 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 if (command == 'popclown') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
 
-let who = m.mentionedJid?.[0] || m.quoted?.sender || m.sender
-let avatar = await conn.profilePictureUrl(who, 'image')
-let drip = `https://api.popcat.xyz/clown?image=${avatar}`
+let drip = `https://api.popcat.xyz/clown?image=${url}`
 
 let caption = `*title:* ${text}
 `
@@ -345,9 +351,7 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 if (command == 'popuncover') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
 
-let who = m.mentionedJid?.[0] || m.quoted?.sender || m.sender
-let avatar = await conn.profilePictureUrl(who, 'image')
-let drip = `https://api.popcat.xyz/uncover?image=${avatar}`
+let drip = `https://api.popcat.xyz/uncover?image=${url}`
 
 let caption = `*title:* ${text}
 `
@@ -359,9 +363,7 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 if (command == 'popad') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
 
-let who = m.mentionedJid?.[0] || m.quoted?.sender || m.sender
-let avatar = await conn.profilePictureUrl(who, 'image')
-let drip = `https://api.popcat.xyz/ad?image=${avatar}`
+let drip = `https://api.popcat.xyz/ad?image=${url}`
 
 let caption = `*title:* ${text}
 `
@@ -373,9 +375,7 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 if (command == 'popblur') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
 
-let who = m.mentionedJid?.[0] || m.quoted?.sender || m.sender
-let avatar = await conn.profilePictureUrl(who, 'image')
-let drip = `https://api.popcat.xyz/blur?image=${avatar}`
+let drip = `https://api.popcat.xyz/blur?image=${url}`
 
 let caption = `*title:* ${text}
 `
@@ -387,9 +387,7 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 if (command == 'popinvert') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
 
-let who = m.mentionedJid?.[0] || m.quoted?.sender || m.sender
-let avatar = await conn.profilePictureUrl(who, 'image')
-let drip = `https://api.popcat.xyz/invert?image=${avatar}`
+let drip = `https://api.popcat.xyz/invert?image=${url}`
 
 let caption = `*title:* ${text}
 `
@@ -432,9 +430,7 @@ return m.reply(caption)
 if (command == 'poppet') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
 
-let who = m.mentionedJid?.[0] || m.quoted?.sender || m.sender
-let avatar = await conn.profilePictureUrl(who, 'image')
-let drip = `https://api.popcat.xyz/pet?image=${avatar}`
+let drip = `https://api.popcat.xyz/pet?image=${url}`
 conn.sendMessage(m.chat, { image: drip }, { quoted: m })
 }
 

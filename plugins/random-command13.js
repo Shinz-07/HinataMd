@@ -100,7 +100,7 @@ if (global.conn.user.jid == conn.user.jid) conn.reply(m.chat, 'Kenapa nggk langs
     conn.close()
   }
   }
-handler.command = handler.help = ['cjadibot', 'jadibot', 'listjadibot', 'savefile', 'stopjadibot'
+handler.command = handler.help = ['cjadibot', 'jadibot', 'listjadibot', 'savefile', 'stopjadibot']
 handler.tags = ['host']
 
 export default handler
