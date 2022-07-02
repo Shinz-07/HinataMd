@@ -246,7 +246,7 @@ let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentM
 	{title: `${emoj} ${emot} Vote ${emot}`, rowId: ".menulist vote", description: desk},
 	{title: `${emoj} ${emot} XP ${emot}`, rowId: ".menulist xp", description: desk}
 	]
-  },
+  }
 ]
 
 let tek = `*Hai ${conn.getName(m.sender)}*

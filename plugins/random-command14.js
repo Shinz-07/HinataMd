@@ -4,8 +4,10 @@ import uploadImage from '../lib/uploadImage.js'
 import { sticker } from '../lib/sticker.js'
 import fs from 'fs'
 import jimp from 'jimp'
+import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
+
     
-let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
+let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command, isPrems, isOwner }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 let imgr = flaaa.getRandom()
@@ -14,14 +16,9 @@ let urut = text.split`|`
   let two = urut[2]
   let three = urut[3]
   let q = m.quoted ? m.quoted : m
-  let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'Fotonya Mana?'
-  if (!/image\/(jpe?g|png)/.test(mime)) throw `Tipe ${mime} tidak didukung!`
-    if (!text) return m.reply(`Balas gambar dengan perintah
-    ${usedPrefix + command} teks`)
-    
-    let img = await q.download?.()
-    let url = await uploadImage(img)
+  let img = await q.download?.()
+  let url = await uploadImage(img)
+  
 if (command == 'amazon') {
 if (!text) throw `Contoh:\n${usedPrefix + command} Teks`
 let res = await fetch(`https://leyscoders-api.herokuapp.com/api/amazon-search?q=${text}&apikey=MIMINGANZ`)
@@ -304,8 +301,48 @@ await conn.sendButton(m.chat, caption, wm, x.img, [
 }
 }
 
+if (command == 'getaud') {
+  let q = '128kbps'
+  let v = args[0]
+// Kocak
+const yt = await youtubedl(v).catch(async () => await  youtubedlv2(v))
+const dl_url = await yt.audio[q].download()
+  const ttl = await yt.title
+const size = await yt.audio[q].fileSizeH
+  
+ await m.reply(`▢ Tɪᴛᴛʟᴇ: ${ttl}
+▢  Sɪᴢᴇ: ${size}
+
+▢ Ｌｏａｄｉｎｇ. . .`)
+  await conn.sendFile(m.chat, dl_url, ttl + '.mp3', me, m, null, {
+    asDocument: false
+  })
+  }
+  
+  if (command == 'getvid') {
+  let qu = args[1] || '360'
+  let q = qu + 'p'
+  let v = args[0]
+
+  let _thumb = {}
+    try { _thumb = { jpegThumbnail: thumb2 } }
+    catch (e) { }
+
+// Kocak
+const yt = await youtubedl(v).catch(async () => await  youtubedlv2(v))
+const dl_url = await yt.video[q].download()
+  const ttl = await yt.title
+const size = await yt.video[q].fileSizeH
+  
+ await m.reply(`▢ Tɪᴛᴛʟᴇ: ${ttl}
+▢  Sɪᴢᴇ: ${size}
+
+▢ Ｌｏａｄｉｎｇ. . .`)
+  await conn.sendMessage(m.chat, { [/^(?:-|--)doc$/i.test(args[1]) || null ? 'document' : 'video']: { url: dl_url }, fileName: `${me}.mp4`, mimetype: 'video/mp4', ..._thumb }, { quoted: m })
 }
-handler.command = handler.help = ['amazon', 'animanga', 'leys']
+
+}
+handler.command = handler.help = ['amazon', 'animanga', 'leys', 'getvid', 'getaud']
 handler.tags = ['random']
 
 export default handler
