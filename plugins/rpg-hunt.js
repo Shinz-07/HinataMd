@@ -1,4 +1,4 @@
-let handler = async (m, { conn, text }) => {
+let handler = async (m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
   let monsters = [
     { area: 1, name: "Goblin" },
     { area: 1, name: "Slime" },

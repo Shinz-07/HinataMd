@@ -10,6 +10,9 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command, isPrems, isOwner }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
+let frnya = ['adReply', 'fakeig', 'ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif', 'frep', 'fdoc']
+let frx = frnya.getRandom()
+
 let imgr = flaaa.getRandom()
 let urut = text.split`|`
   let one = urut[1]
@@ -23,37 +26,35 @@ let res = await fetch(`https://leyscoders-api.herokuapp.com/api/amazon-search?q=
 let xx = await res.json()
 let x = xx.result
 let caption = `*Result:*
-${x.item}
-${x.review}
-${x.rating}
-${x.price}
-${x.score}
-${x.diskon}
-${x.rating}
-${x.url}
-${x.sponsor}
-${x.best_seller}
-${x.amazon_prime}
+*item:* ${x.item}
+*review:* ${x.review}
+*rating:* ${x.rating}
+*price:* ${x.price}
+*score:* ${x.score}
+*diskon:* ${x.diskon}
+*rating:* ${x.rating}
+*url:* ${x.url}
+*sponsor:* ${x.sponsor}
+*best_seller:* ${x.best_seller}
+*amazon_prime:* ${x.amazon_prime}
 `
 await conn.sendButton(m.chat, caption, wm, x.thumb, [
                 ['Get Picture', `${usedPrefix}get ${x.thumb}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 
 if (command == 'animanga') {
-const { anima } = await fetch(`https://leyscoders-api.herokuapp.com/api/animanga?apikey=MIMINGANZ`)
-  let teks = [...anima].map(v => {
-    switch (v.type) {
-      case 'anima': return `
-📌 *${v.result.title}*
-Url: ${v.result.url}
+const { result } = await fetch(`https://leyscoders-api.herokuapp.com/api/animanga?apikey=MIMINGANZ`)
+  let teks = [...result].map(v => {
+  `
+📌 *${v.title}*
+Url: ${v.url}
       `.trim()
-    }
   }).filter(v => v).join('\n\n▣═━–〈 *SEARCH* 〉–━═▣\n\n')
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, `${v.result.img}`, [
                 ['Search!', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 
 if (command == 'leys') {
@@ -61,6 +62,25 @@ if (!args[0]) throw `Contoh:\n${usedPrefix + command} baka
 
 *List:*
 • artikata
+• artimimpi
+• artinama
+• kuadrat
+• kubik
+• beritanews
+• antaranews
+• byte
+• cekip
+• ceritahoror
+• cerpen
+• cersex
+• count
+• hujan
+• cuaca
+• cuttly
+• darkjoke
+• drakoron
+• fakta
+• imgbb
 `
 
 if (args[0] == 'artikata') {
@@ -71,7 +91,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'artimimpi') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/artimimpi?q=${one}&apikey=MIMINGANZ`)
@@ -81,7 +101,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'artinama') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/artinama?q=${one}&apikey=MIMINGANZ`)
@@ -91,7 +111,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'kuadrat') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/bdr/kuadrat?q=${one}&apikey=MIMINGANZ`)
@@ -101,7 +121,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'kubik') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/bdr/kubik?q=${one}&apikey=MIMINGANZ`)
@@ -111,7 +131,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'beritanews') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/berita-news?apikey=MIMINGANZ`)
@@ -123,7 +143,7 @@ ${x.url}
 `.trim()
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${x.img}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'antaranews') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/antara-news?apikey=MIMINGANZ`)
@@ -135,7 +155,7 @@ ${x.url}
 `.trim()
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${x.img}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'byte') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/byte-converter?q=${one}&apikey=MIMINGANZ`)
@@ -145,7 +165,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'cekip') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cekip?ip=${one}&apikey=MIMINGANZ`)
@@ -165,7 +185,7 @@ ${x.longitude}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'ceritahoror') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cerita-horor?apikey=MIMINGANZ`)
@@ -177,7 +197,7 @@ ${x.desc}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'cerpen') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cerpen?apikey=MIMINGANZ`)
@@ -191,7 +211,7 @@ ${x.story}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'cersex') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cersex?apikey=MIMINGANZ`)
@@ -201,17 +221,17 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, x.gambar, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'count') {
-let f = await fetch(`https://leyscoders-api.herokuapp.com/api/count-date?tgl=${one}&bln=${two}&thn=${three}&apikey=MIMINGANZ`)
+let f = await fetch(`https://leyscoders-api.herokuapp.com/api/count-date?tgl=${args[1]}&bln=${args[2]}&thn=${args[3]}&apikey=MIMINGANZ`)
 let x = await f.json()
 let caption = `*Result:*
 ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'hujan') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cuaca/hujan?apikey=MIMINGANZ`)
@@ -220,26 +240,26 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, x.result, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'cuaca') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cuaca?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
 let x = xx.result
 let caption = `*Result:*
-${x.Daerah}
-${x.Latitude}
-${x.Longitude}
-${x.TimeZone}
-${x.Temperature}
-${x.Tanggal}
-${x.Waktu}
-${x.Hari}
-${x.Cuaca}
+*Daerah:* ${x.Daerah}
+*Latitude:* ${x.Latitude}
+*Longitude:* ${x.Longitude}
+*TimeZone:* ${x.TimeZone}
+*Temperature:* ${x.Temperature}
+*Tanggal:* ${x.Tanggal}
+*Waktu:* ${x.Waktu}
+*Hari:* ${x.Hari}
+*Cuaca:* ${x.Cuaca}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'cuttly') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cuttly?url=${one}&apikey=MIMINGANZ`)
@@ -253,7 +273,7 @@ ${x.hasil}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'darkjoke') {
 let img = `https://leyscoders-api.herokuapp.com/api/darkjoke?apikey=MIMINGANZ`
@@ -261,7 +281,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'drakoron') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/drakor-ongoing?apikey=MIMINGANZ`)
@@ -274,7 +294,7 @@ ${x.url}
 `.trim()
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${x.img}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'fakta') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/fakta?apikey=MIMINGANZ`)
@@ -284,21 +304,21 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 if (args[0] == 'imgbb') {
 let q = m.quoted ? m.quoted : m
   let img = await q.download?.()
   let url = await uploadImage(img)
-let f = await fetch(`https://leyscoders-api.herokuapp.com/api/imgbb?url=${url}&title=hafizh&apikey=MIMINGANZ`)
+let f = await fetch(`https://leyscoders-api.herokuapp.com/api/imgbb?url=${url}&title=${args[1]}&apikey=MIMINGANZ`)
 let x = await f.json()
 let caption = `*Result:*
-${x.url}
-${x.delete_url}
+Custom-Url: ${x.url}
+Temp-Url: ${x.delete_url}
 `
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${x.img}`]
-            ], m, fdoc)
+            ], m, frx)
 }
 }
 

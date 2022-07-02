@@ -34,7 +34,6 @@ _Jika Respon Tidak Muncul Kemungkinan Terjadi Error_
 `,
 }
 let handler = async (m, { conn, command, groupMetadata, usedPrefix: _p, __dirname, args }) => {
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let { exp, limit, level, role, money, lastclaim, lastweekly, registered, regTime, age, banned, pasangan } = global.db.data.users[who]
     let { min, xp, max } = xpRange(level, global.multiplier)
@@ -204,7 +203,24 @@ let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentM
     'nocategory': 'No Category'
   }
   
-  
+  const trol = {
+	key : {
+                          participant : '0@s.whatsapp.net'
+                        },
+       message: {
+                    orderMessage: {
+                            itemCount : 2022,
+                            itemCoun : 2022,
+                            surface : 2022,
+                            message: wm,
+                            orderTitle: name,
+                            thumbnail: await (await fetch(pp)).buffer(), 
+                            sellerJid: '0@s.whatsapp.net'
+          
+                          }
+                        }
+                      }
+                      
     try {
     let desk = `\n\nMungkin menu ini bisa membantu?`
       const sections = [
@@ -253,11 +269,9 @@ let tek = `*Hai ${conn.getName(m.sender)}*
 
 *YOUR PROFILE*
 *🏷️ Nama:* *(${name})* ${registered ? '(' + name + ') ' : ''} ( @${who.split("@")[0]} )
-*❤️ Pasangan:*  ${pasangan ? `@${pasangan.split("@")[0]}` : `Tidak Punya`}
 *💲 Money:* *RP* ${money}
 *🏆 Level* ${level}
 *🎋 Role:* ${role}
-*🧬 XP:* TOTAL ${exp} (${exp - min} / ${xp}) [${math <= 0 ? `Siap untuk *${usedPrefix}levelup*` : `${math} XP lagi untuk levelup`}]
 *📨 Terdaftar:* ${registered ? 'Ya (' + new Date(regTime).toLocaleString() + ')' : 'Tidak'} ${lastclaim > 0 ? '\n*⏱️Terakhir Klaim:* ' + new Date(lastclaim).toLocaleString() : ''}\n\n Ketik ${usedPrefix}inv untuk melihat Inventory RPG
 `
 const listMessage = {
@@ -269,7 +283,7 @@ const listMessage = {
   sections
 }
   if (teks == '404') {
-  	return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(tek), contextInfo:{ forwardingScore: 99999, isForwarded: true }})
+  	return conn.sendMessage(m.chat, listMessage, { quoted: trol  })
     }
     
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}

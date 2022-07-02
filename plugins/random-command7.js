@@ -244,6 +244,7 @@ await conn.sendButton(m.chat, caption, wm, x.avatar, [
 }
 
 if (command == 'popship') {
+
 let ps = groupMetadata.participants.map(v => v.id)
     let a = ps.getRandom()
     let b
@@ -252,8 +253,9 @@ let ps = groupMetadata.participants.map(v => v.id)
     let ia = `${toM(a)}`
     let ib = `${toM(b)}`
     
-    let sia = await conn.profilePictureUrl(ia, 'image')
-    let sib = await conn.profilePictureUrl(ib, 'image')
+    let sia = await conn.profilePictureUrl(ia).catch(_ => './src/avatar_contact.png')
+    let sib = await conn.profilePictureUrl(ib).catch(_ => './src/avatar_contact.png')
+
     let urla = await uploadImage(sia)
     let urlb = await uploadImage(sib)
     
