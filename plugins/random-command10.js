@@ -282,7 +282,7 @@ if (command == 'tafsirsurahx') {
 		m.reply(txt)
 		}
 		
-if (command == 'character') {
+if (command == 'characters') {
   if (!text) throw `Masukkan query!`
   let res = await fetch(`https://api.jikan.moe/v3/search/character?q=${text}`)
   let json = await res.json()
@@ -298,7 +298,7 @@ await conn.sendButton(m.chat, charaingfo, wm, image_url, [
 }
 
 }
-handler.command = handler.help = ['gqr', 'catboys', 'animals', 'nekos', 'crafatar', 'crafatar2', 'crafatar3', 'crafatar4', 'crafatar5', 'lmsea', 'iqrax', 'juzammax', 'hadistx', 'alquranx', 'tafsirsurahx', 'character']
+handler.command = handler.help = ['gqr', 'catboys', 'animals', 'nekos', 'crafatar', 'crafatar2', 'crafatar3', 'crafatar4', 'crafatar5', 'lmsea', 'iqrax', 'juzammax', 'hadistx', 'alquranx', 'tafsirsurahx', 'characters']
 handler.tags = ['random']
 
 export default handler

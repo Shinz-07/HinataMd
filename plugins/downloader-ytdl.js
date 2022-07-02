@@ -59,7 +59,7 @@ const sections = [
 
 const listMessage = {
   text: `›  ᴩʟᴇᴀꜱᴇ ꜱᴇʟᴇᴄᴛ yᴏᴜʀ ᴍᴇᴅɪᴀ ᴛyᴩᴇ...`,
-  footer: me,
+  footer: wm,
   title: "『 - - - - - 𝚈𝚘𝚞𝚝𝚞𝚋𝚎 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚛 - - - - - 』",
   buttonText: "Click Here !",
   sections

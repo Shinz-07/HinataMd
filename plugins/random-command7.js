@@ -10,16 +10,6 @@ let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command })
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
-let q = m.quoted ? m.quoted : m
-  let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'Fotonya Mana?'
-  if (!/image\/(jpe?g|png)/.test(mime)) throw `Tipe ${mime} tidak didukung!`
-    if (!text) return m.reply(`Balas gambar dengan perintah
-    ${usedPrefix + command} teks`)
-    
-    let img = await q.download?.()
-    let url = await uploadImage(img)
-    
 if (command == 'twittdl') {
 if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} https://twitter.com/PassengersMovie/status/821025484150423557`
 let f = await fetch(`https://api-xfar05.herokuapp.com/api/twitter?url=${args[0]}`)
@@ -303,6 +293,10 @@ await conn.sendButton(m.chat, caption, wm, x.image, [
 }
 
 if (command == 'popdrip') {
+let q = m.quoted ? m.quoted : m
+    let img = await q.download?.()
+    let url = await uploadImage(img)
+
 let drip = `https://api.popcat.xyz/drip?image=${url}`
 let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
@@ -311,6 +305,10 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 }
 
 if (command == 'popclown') {
+let q = m.quoted ? m.quoted : m
+    let img = await q.download?.()
+    let url = await uploadImage(img)
+    
 let drip = `https://api.popcat.xyz/clown?image=${url}`
 let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
@@ -319,6 +317,10 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 }
 
 if (command == 'popuncover') {
+let q = m.quoted ? m.quoted : m
+    let img = await q.download?.()
+    let url = await uploadImage(img)
+    
 let drip = `https://api.popcat.xyz/uncover?image=${url}`
 let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
@@ -327,6 +329,10 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 }
 
 if (command == 'popad') {
+let q = m.quoted ? m.quoted : m
+    let img = await q.download?.()
+    let url = await uploadImage(img)
+    
 let drip = `https://api.popcat.xyz/ad?image=${url}`
 let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
@@ -335,6 +341,10 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 }
 
 if (command == 'popblur') {
+let q = m.quoted ? m.quoted : m
+    let img = await q.download?.()
+    let url = await uploadImage(img)
+    
 let drip = `https://api.popcat.xyz/blur?image=${url}`
 let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
@@ -343,6 +353,10 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 }
 
 if (command == 'popinvert') {
+let q = m.quoted ? m.quoted : m
+    let img = await q.download?.()
+    let url = await uploadImage(img)
+    
 let drip = `https://api.popcat.xyz/invert?image=${url}`
 let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
@@ -376,6 +390,10 @@ return m.reply(caption)
 }
 
 if (command == 'poppet') {
+let q = m.quoted ? m.quoted : m
+    let img = await q.download?.()
+    let url = await uploadImage(img)
+    
 let drip = `https://api.popcat.xyz/pet?image=${url}`
 conn.sendMessage(m.chat, { image: drip }, { quoted: m })
 }

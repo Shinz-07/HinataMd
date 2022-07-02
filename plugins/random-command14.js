@@ -15,9 +15,7 @@ let urut = text.split`|`
   let one = urut[1]
   let two = urut[2]
   let three = urut[3]
-  let q = m.quoted ? m.quoted : m
-  let img = await q.download?.()
-  let url = await uploadImage(img)
+  
   
 if (command == 'amazon') {
 if (!text) throw `Contoh:\n${usedPrefix + command} Teks`
@@ -289,6 +287,9 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], m, fdoc)
 }
 if (args[0] == 'imgbb') {
+let q = m.quoted ? m.quoted : m
+  let img = await q.download?.()
+  let url = await uploadImage(img)
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/imgbb?url=${url}&title=hafizh&apikey=MIMINGANZ`)
 let x = await f.json()
 let caption = `*Result:*
@@ -314,7 +315,7 @@ const size = await yt.audio[q].fileSizeH
 ▢  Sɪᴢᴇ: ${size}
 
 ▢ Ｌｏａｄｉｎｇ. . .`)
-  await conn.sendFile(m.chat, dl_url, ttl + '.mp3', me, m, null, {
+  await conn.sendFile(m.chat, dl_url, ttl + '.mp3', wm, m, null, {
     asDocument: false
   })
   }
@@ -338,7 +339,7 @@ const size = await yt.video[q].fileSizeH
 ▢  Sɪᴢᴇ: ${size}
 
 ▢ Ｌｏａｄｉｎｇ. . .`)
-  await conn.sendMessage(m.chat, { [/^(?:-|--)doc$/i.test(args[1]) || null ? 'document' : 'video']: { url: dl_url }, fileName: `${me}.mp4`, mimetype: 'video/mp4', ..._thumb }, { quoted: m })
+  await conn.sendMessage(m.chat, { [/^(?:-|--)doc$/i.test(args[1]) || null ? 'document' : 'video']: { url: dl_url }, fileName: `${wm}.mp4`, mimetype: 'video/mp4', ..._thumb }, { quoted: m })
 }
 
 }
