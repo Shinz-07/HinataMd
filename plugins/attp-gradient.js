@@ -23,14 +23,12 @@ if (command == 'attp2') {
 }
 
 if (command == 'ttp8') {
-    let stiker = await sticker(null, global.API(`https://leyscoders-api.herokuapp.com/api/ttp2?text=${teks}&apikey=MIMINGANZ`), global.packname, global.author)
-    if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, fdoc)
-    throw stiker.toString()
+    let stiker = `https://leyscoders-api.herokuapp.com/api/ttp2?text=${teks}&apikey=MIMINGANZ`
+    return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, fdoc)
 }
 if (command == 'ttp7') {
-    let stiker = await sticker(null, global.API(`https://leyscoders-api.herokuapp.com/api/ttp1?text=${teks}&apikey=MIMINGANZ`), global.packname, global.author)
-    if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, fdoc)
-    throw stiker.toString()
+    let stiker = `https://leyscoders-api.herokuapp.com/api/ttp1?text=${teks}&apikey=MIMINGANZ`
+    return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, fdoc)
 }
 if (command == 'ttp6') {
     let stiker = await sticker(null, global.API(`https://api.lolhuman.xyz/api/ttp6?apikey=9b817532fadff8fc7cb86862&text=${teks}`), global.packname, global.author)

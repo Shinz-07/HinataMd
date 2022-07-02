@@ -69,7 +69,7 @@ let handler = async (m, { conn, text }) => {
         msg += `\nLevel Anda Turun 1 Karena Mati Saat Berburu!`
       }
       player.healt = 100
-      m.reply(msg)
+      await conn.sendButton(m.chat, msg, wm, pp, [['Menu', `${usedPrefix}menu`],['Owner', `${usedPrefix}owner`]], m, { mentions: conn.parseMention(msg) })
       return
     }
 
@@ -77,7 +77,7 @@ let handler = async (m, { conn, text }) => {
     player.exp += exp * 1
 
     let pesan = `*@${m.sender.split("@")[0]}* Menemukan Dan Membunuh *${monsterName}*\nMendapatkan ${new Intl.NumberFormat('en-US').format(coins)} coins & ${new Intl.NumberFormat('en-US').format(exp)} XP\nBerkurang -${dmg}Hp, Tersisa ${player.healt}/${100}`
-    m.reply(pesan)
+    await conn.sendButton(m.chat, pesan, wm, pp, [['Menu', `${usedPrefix}menu`],['Owner', `${usedPrefix}owner`]], m, { mentions: conn.parseMention(pesan) })
   } else throw `Tunggu *00:0${cd1}:${cd2}* Untuk Berburu Lagi`
 }
 handler.help = ['hunt']

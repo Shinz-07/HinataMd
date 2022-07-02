@@ -22,7 +22,6 @@ let q = m.quoted ? m.quoted : m
     
 if (command == 'twittdl') {
 if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} https://twitter.com/PassengersMovie/status/821025484150423557`
-
 let f = await fetch(`https://api-xfar05.herokuapp.com/api/twitter?url=${args[0]}`)
 let x = await f.json()
 let caption = `*TWITTER:* ${x.result.desc}`
@@ -35,7 +34,6 @@ await conn.sendButton(m.chat, caption, wm, x.result.thumb, [
 
 if (command == 'otaku') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} Naruto`
-
 let f = await fetch(`https://yuzzu-api.herokuapp.com/api/otaku?judul=${text}`)
 let p = await f.json()
 let x = p.result.result
@@ -71,7 +69,6 @@ await conn.sendHydrated(m.chat, caption, wm, x.result, null, null, null, null, [
 
 if (command == 'artikbbi') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} Aku`
-
 let f = await fetch(`https://yuzzu-api.herokuapp.com/api/kbbi?kata=${text}`)
 let x = await f.json()
 let caption = `Lema: ${x.result.lema}
@@ -106,7 +103,6 @@ await conn.sendButton(m.chat, caption, wm, null, [
 
 if (command == 'imdb') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} iron man`
-
 let f = await fetch(`https://api.popcat.xyz/imdb?q=${text}`)
 let x = await f.json()
 
@@ -131,8 +127,7 @@ let caption = `*Title:* ${x.title}
 *dvd:* ${x.dvd}
 *boxoffice:* ${x.boxoffice}
 *name:* ${x.name}
-*imdburl:* ${x.imdburl}
-`
+*imdburl:* ${x.imdburl}`
 await conn.sendButton(m.chat, caption, wm, x.poster, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -140,7 +135,6 @@ await conn.sendButton(m.chat, caption, wm, x.poster, [
 
 if (command == 'popss') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} iron man`
-
 let img = `https://api.popcat.xyz/screenshot?url=${text}`
 let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
@@ -150,7 +144,6 @@ await conn.sendButton(m.chat, caption, wm, img, [
 
 if (command == 'popcolor') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} ffcc99`
-
 let f = await fetch(`https://api.popcat.xyz/color/${text}`)
 let x = await f.json()
 
@@ -169,8 +162,7 @@ if (command == 'popcolor2') {
 let f = await fetch(`https://api.popcat.xyz/randomcolor`)
 let x = await f.json()
 let caption = `*hex:* ${x.hex}
-*name:* ${x.name}
-`
+*name:* ${x.name}`
 await conn.sendButton(m.chat, caption, wm, x.image, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -178,15 +170,13 @@ await conn.sendButton(m.chat, caption, wm, x.image, [
 
 if (command == 'popsong') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} ffcc99`
-
 let f = await fetch(`https://api.popcat.xyz/lyrics?song=${text}`)
 let x = await f.json()
 
 let caption = `*title:* ${x.title}
 *artist:* ${x.artist}
 
-*lyrics:* ${x.lyrics}
-`
+*lyrics:* ${x.lyrics}`
 await conn.sendButton(m.chat, caption, wm, x.image, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -194,7 +184,6 @@ await conn.sendButton(m.chat, caption, wm, x.image, [
 
 if (command == 'popsteam') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} minecraft`
-
 let f = await fetch(`https://api.popcat.xyz/steam?q=${text}`)
 let x = await f.json()
 
@@ -205,8 +194,7 @@ let caption = `*type:* ${x.type}
 *developers:* ${Array.from(x.developers)}
 *publishers:* ${Array.from(x.publishers)}
 *price:* ${x.price}
-*controller_support:* ${x.controller_support}
-`
+*controller_support:* ${x.controller_support}`
 await conn.sendButton(m.chat, caption, wm, x.thumbnail, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -214,10 +202,8 @@ await conn.sendButton(m.chat, caption, wm, x.thumbnail, [
 
 if (command == 'sadcat') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} Your`
-
 let img = `https://api.popcat.xyz/sadcat?text=${text}`
-let caption = `*Result:* ${text}
-`
+let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -225,10 +211,8 @@ await conn.sendButton(m.chat, caption, wm, img, [
 
 if (command == 'oogway') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} Your`
-
 let img = `https://api.popcat.xyz/oogway?text=${text}`
-let caption = `*Result:* ${text}
-`
+let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -238,8 +222,7 @@ if (command == 'popcar') {
 let f = await fetch(`https://api.popcat.xyz/car`)
 let x = await f.json()
 
-let caption = `*title:* ${x.title}
-`
+let caption = `*title:* ${x.title}`
 await conn.sendButton(m.chat, caption, wm, x.image, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -247,7 +230,6 @@ await conn.sendButton(m.chat, caption, wm, x.image, [
 
 if (command == 'popgit') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} minecraft`
-
 let f = await fetch(`https://api.popcat.xyz/github/${text}`)
 let x = await f.json()
 
@@ -265,8 +247,7 @@ let caption = `*url:* ${x.url}
 *followers:* ${x.followers}
 *following:* ${x.following}
 *created_at:* ${x.created_at}
-*updated_at:* ${x.updated_at}
-`
+*updated_at:* ${x.updated_at}`
 await conn.sendButton(m.chat, caption, wm, x.avatar, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -280,20 +261,21 @@ let ps = groupMetadata.participants.map(v => v.id)
     while (b === a)
     let ia = `${toM(a)}`
     let ib = `${toM(b)}`
+    
     let sia = await conn.profilePictureUrl(ia, 'image')
     let sib = await conn.profilePictureUrl(ib, 'image')
-
-let img = `https://api.popcat.xyz/ship?user1=${sia}&user2=${sib}`
+    let urla = await uploadImage(sia)
+    let urlb = await uploadImage(sib)
+    
+let img = `https://api.popcat.xyz/ship?user1=${urla}&user2=${urlb}`
 let caption = `*Ciee...* ${toM(a)} ❤️ ${toM(b)}`
     await conn.sendButton(m.chat, caption, wm, img, [['jodohnya', `${usedPrefix}jodohnya`],['jodohku', `${usedPrefix}jodohku`]], m, { mentions: conn.parseMention(caption) })
 }
 
 if (command == 'popbiden') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} Your`
-
 let img = `https://api.popcat.xyz/biden?text=${text}`
-let caption = `*Result:* ${text}
-`
+let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -301,10 +283,8 @@ await conn.sendButton(m.chat, caption, wm, img, [
 
 if (command == 'poppika') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} Your`
-
 let img = `https://api.popcat.xyz/pikachu?text=${text}`
-let caption = `*Result:* ${text}
-`
+let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -313,84 +293,58 @@ await conn.sendButton(m.chat, caption, wm, img, [
 if (command == 'popmeme') {
 let f = await fetch(`https://api.popcat.xyz/meme`)
 let x = await f.json()
-
 let caption = `*title:* ${x.title}
 *url:* ${x.url}
 *upvotes:* ${x.upvotes}
-*comments:* ${x.comments}
-`
+*comments:* ${x.comments}`
 await conn.sendButton(m.chat, caption, wm, x.image, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
 }
 
 if (command == 'popdrip') {
-if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
-
 let drip = `https://api.popcat.xyz/drip?image=${url}`
-
-let caption = `*title:* ${text}
-`
+let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, { mentions: conn.parseMention(caption) })
 }
 
 if (command == 'popclown') {
-if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
-
 let drip = `https://api.popcat.xyz/clown?image=${url}`
-
-let caption = `*title:* ${text}
-`
+let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, { mentions: conn.parseMention(caption) })
 }
 
 if (command == 'popuncover') {
-if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
-
 let drip = `https://api.popcat.xyz/uncover?image=${url}`
-
-let caption = `*title:* ${text}
-`
+let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, { mentions: conn.parseMention(caption) })
 }
 
 if (command == 'popad') {
-if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
-
 let drip = `https://api.popcat.xyz/ad?image=${url}`
-
-let caption = `*title:* ${text}
-`
+let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, { mentions: conn.parseMention(caption) })
 }
 
 if (command == 'popblur') {
-if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
-
 let drip = `https://api.popcat.xyz/blur?image=${url}`
-
-let caption = `*title:* ${text}
-`
+let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, { mentions: conn.parseMention(caption) })
 }
 
 if (command == 'popinvert') {
-if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
-
 let drip = `https://api.popcat.xyz/invert?image=${url}`
-
-let caption = `*title:* ${text}
-`
+let caption = `*Result:*`
 await conn.sendButton(m.chat, caption, wm, drip, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, { mentions: conn.parseMention(caption) })
@@ -398,10 +352,8 @@ await conn.sendButton(m.chat, caption, wm, drip, [
 
 if (command == 'poptunes') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
-
 let f = await fetch(`https://api.popcat.xyz/itunes?q=${text}`)
 let x = await f.json()
-
 let caption = `*url:* ${x.url}
 *name:* ${x.name}
 *artist:* ${x.artist}
@@ -409,8 +361,7 @@ let caption = `*url:* ${x.url}
 *release_date:* ${x.release_date}
 *price:* ${x.price}
 *length:* ${x.length}
-*genre:* ${x.genre}
-`
+*genre:* ${x.genre}`
 await conn.sendButton(m.chat, caption, wm, x.thumbnail, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -418,28 +369,21 @@ await conn.sendButton(m.chat, caption, wm, x.thumbnail, [
 
 if (command == 'poptext') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
-
 let f = await fetch(`https://api.popcat.xyz/reverse?text=${text}`)
 let x = await f.json()
-
-let caption = `*Result:* ${x.text}
-`
+let caption = `*Result:* ${x.text}`
 return m.reply(caption)
 }
 
 if (command == 'poppet') {
-if (!text) throw `Contoh penggunaan ${usedPrefix + command} @Your`
-
 let drip = `https://api.popcat.xyz/pet?image=${url}`
 conn.sendMessage(m.chat, { image: drip }, { quoted: m })
 }
 
 if (command == 'popalert') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} Your`
-
 let img = `https://api.popcat.xyz/alert?text=${text}`
-let caption = `*Result:* ${text}
-`
+let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)
@@ -447,10 +391,8 @@ await conn.sendButton(m.chat, caption, wm, img, [
 
 if (command == 'popcaution') {
 if (!text) throw `Contoh penggunaan ${usedPrefix + command} Your`
-
 let img = `https://api.popcat.xyz/caution?text=${text}`
-let caption = `*Result:* ${text}
-`
+let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
             ], m, fdoc)

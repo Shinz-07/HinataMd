@@ -4,16 +4,6 @@ import uploadImage from '../lib/uploadImage.js'
 import { sticker } from '../lib/sticker.js'
 import fs from 'fs'
 import jimp from 'jimp'
-
-let q = m.quoted ? m.quoted : m
-  let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'Fotonya Mana?'
-  if (!/image\/(jpe?g|png)/.test(mime)) throw `Tipe ${mime} tidak didukung!`
-    if (!text) return m.reply(`Balas gambar dengan perintah
-    ${usedPrefix + command} teks`)
-    
-    let img = await q.download?.()
-    let url = await uploadImage(img)
     
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
@@ -23,7 +13,15 @@ let urut = text.split`|`
   let one = urut[1]
   let two = urut[2]
   let three = urut[3]
-  
+  let q = m.quoted ? m.quoted : m
+  let mime = (q.msg || q).mimetype || ''
+  if (!mime) throw 'Fotonya Mana?'
+  if (!/image\/(jpe?g|png)/.test(mime)) throw `Tipe ${mime} tidak didukung!`
+    if (!text) return m.reply(`Balas gambar dengan perintah
+    ${usedPrefix + command} teks`)
+    
+    let img = await q.download?.()
+    let url = await uploadImage(img)
 if (command == 'amazon') {
 if (!text) throw `Contoh:\n${usedPrefix + command} Teks`
 let res = await fetch(`https://leyscoders-api.herokuapp.com/api/amazon-search?q=${text}&apikey=MIMINGANZ`)

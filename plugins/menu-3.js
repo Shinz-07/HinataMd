@@ -269,8 +269,7 @@ const listMessage = {
   sections
 }
   if (teks == '404') {
-  return conn.sendMessage(m.chat, listMessage, fdoc)
-  	// return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(tek), contextInfo: {forwardingScore: 99999, isForwarded: true, externalAdReply: {showAdAttribution: true, title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}})
+  return conn.sendMessage(m.chat, listMessage, { contextInfo: {forwardingScore: 99999, isForwarded: true }})
     }
     
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
