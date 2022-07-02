@@ -1,6 +1,6 @@
-import qrcode from 'qrcode'
+import qrcode from 'qrcode-terminal'
 import fetch = from 'node-fetch'
-import { servers, ytv } = from '../lib/y2mate'
+import { servers, ytv } = from '../lib/y2mate.js'
 import xfar = from 'xfarr-api'
 import hxz = from "hxz-api"
 import axios = from 'axios'
