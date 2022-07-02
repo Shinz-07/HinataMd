@@ -22,6 +22,16 @@ if (command == 'attp2') {
     throw stiker.toString()
 }
 
+if (command == 'ttp8') {
+    let stiker = await sticker(null, global.API(`https://leyscoders-api.herokuapp.com/api/ttp2?text=${teks}&apikey=MIMINGANZ`), global.packname, global.author)
+    if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, fdoc)
+    throw stiker.toString()
+}
+if (command == 'ttp7') {
+    let stiker = await sticker(null, global.API(`https://leyscoders-api.herokuapp.com/api/ttp1?text=${teks}&apikey=MIMINGANZ`), global.packname, global.author)
+    if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, fdoc)
+    throw stiker.toString()
+}
 if (command == 'ttp6') {
     let stiker = await sticker(null, global.API(`https://api.lolhuman.xyz/api/ttp6?apikey=9b817532fadff8fc7cb86862&text=${teks}`), global.packname, global.author)
     if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, fdoc)
@@ -82,6 +92,6 @@ let images = `https://violetics.pw/api/jimp/tahta?apikey=beta&text=${teks}`
 }
 
 }
-handler.command = handler.help = ['ttpg', 'attpg', 'attpg2', 'quotex', 'tahta', 'ttp1', 'ttp2', 'ttp3', 'ttp4', 'ttp5', 'ttp6', 'attp1', 'attp2', 'hartacustom']
+handler.command = handler.help = ['ttpg', 'attpg', 'attpg2', 'quotex', 'tahta', 'ttp1', 'ttp2', 'ttp3', 'ttp4', 'ttp5', 'ttp6', 'ttp7', 'ttp8', 'attp1', 'attp2', 'hartacustom']
 handler.tags = ['sticker']
 export default handler
