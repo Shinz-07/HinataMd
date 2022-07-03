@@ -2,9 +2,7 @@
 import fetch = from 'node-fetch'
 import fs from 'fs'
 
-let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, isPrems, isOwner, command }) => {
-
-let imgr = flaaa.getRandom()
+let handler = async(m, { conn, usedPrefix, text, args, isPrems, isOwner, command }) => {
 
 if (command == 'savefile') {
 if (!text) throw `where is the path?\n\nexample:\n${usedPrefix + command} plugins/menu.js`

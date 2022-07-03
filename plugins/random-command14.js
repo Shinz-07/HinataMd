@@ -6,7 +6,6 @@ import fs from 'fs'
 import jimp from 'jimp'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 
-    
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command, isPrems, isOwner }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
 
