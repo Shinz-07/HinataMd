@@ -3,9 +3,6 @@ import FormData from 'form-data'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
-//let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif']
-//let frx = frnya.getRandom()
 
 let urut = text.split`|`
   let one = urut[1]
@@ -280,9 +277,9 @@ ${usedPrefix + command} ytplay
 ${usedPrefix + command} ytsearch
 ${usedPrefix + command} yuri
 ${usedPrefix + command} zippyshare`
-await conn.sendButton(m.chat, caption, wm, null, [
+conn.sendButton(m.chat, caption, wm, null, [
                 ['Menu', `${usedPrefix}menu`]
-            ], m, fdoc)
+            ], m, frx)
             }
             
 if (command) {
@@ -297,9 +294,9 @@ switch (template) {
                     for (var x in data.result) {
                         teks += `${x}. ${data.result[x]}\n`
                     }
-                    await conn.sendButton(m.chat, teks, wm, null, [
+                    conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
                 })
                 .catch(console.error)
             break
@@ -315,9 +312,9 @@ switch (template) {
                     }
                     teks = teks.replace(/<u>/g, '_').replace(/<\/u>/g, '_')
                     teks = teks.replace(/<strong>/g, '*').replace(/<\/strong>/g, '*')
-                    await conn.sendButton(m.chat, teks, wm, null, [
+                    conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
                 })
                 .catch(console.error)
             break
@@ -334,9 +331,9 @@ switch (template) {
                     teks += `Arab : ${data.result.ar}\n`
                     teks += `Indonesia : ${data.result.id}\n`
                     teks += `English : ${data.result.en}`
-                    await conn.sendButton(m.chat, teks, wm, null, [
+                    conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
                 })
                 .catch(console.error)
             break
@@ -350,9 +347,9 @@ switch (template) {
                     teks += `Umur : ${data.result.age}\n`
                     teks += `Tempat : ${data.result.place}\n`
                     teks += `Story : \n${data.result.story}`
-                    await conn.sendButton(m.chat, teks, wm, null, [
+                    conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
                 })
                 .catch(console.error)
             break
@@ -372,9 +369,9 @@ switch (template) {
                     teks += `Ashar : ${data.result.ashar}\n`
                     teks += `Maghrib : ${data.result.imsak}\n`
                     teks += `Isya : ${data.result.isya}`
-                    await conn.sendButton(m.chat, teks, wm, null, [
+                    conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
                 })
                 .catch(console.error)
             break
@@ -408,9 +405,9 @@ switch (template) {
                         teks += `Thumbnail : ${x.thumbnail}\n`
                         teks += `Link : https://www.youtube.com/watch?v=${x.videoId}\n\n`
                     }
-                    await conn.sendButton(m.chat, teks, wm, null, [
+                    conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
                 })
                 .catch(console.error)
             break
@@ -480,9 +477,9 @@ switch (template) {
                     teks += `Link : ${x.link}\n`
                     teks += `Preview : ${x.preview_url}\n\n\n`
                 }
-                await conn.sendButton(m.chat, teks, wm, null, [
+                conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             })
             break
         case 'jooxplay':
@@ -541,9 +538,9 @@ switch (template) {
                 teks += `Size : ${data.result.size}\n`
                 teks += `Date Upload : ${data.result.date_upload}\n`
                 teks += `Download Url : ${data.result.download_url}`
-                await conn.sendButton(m.chat, teks, wm, null, [
+                conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             })
             break
         case 'pinterest':
@@ -722,9 +719,9 @@ switch (template) {
                         }
                     }
                 }
-                await conn.sendButton(m.chat, teks, wm, null, [
+                conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             })
             break
         case 'otakudesusearch':
@@ -755,9 +752,9 @@ switch (template) {
                         }
                     }
                 }
-                await conn.sendButton(m.chat, teks, wm, null, [
+                conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             })
             break
 
@@ -776,9 +773,9 @@ switch (template) {
                 teks += `\`\`\`Makna Lain : \n${x.makna[0].submakna}\`\`\`\n `
                 teks += `\`\`\`Contoh Kalimat : \n${x.makna[0].contoh}\`\`\`\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'brainly':
             if (!one) return m.reply(`Example: ${usedPrefix + command} ${template} |siapakah sukarno`)
@@ -790,9 +787,9 @@ switch (template) {
                 teks += `\`\`\`Jawaban :\`\`\`\n${x.answer[0].content}\n`
                 teks += `==============================\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'jarak':
             if (!one) return m.reply(`Example: ${usedPrefix + command} ${template} |jakarta|yogyakarta`)
@@ -814,9 +811,9 @@ switch (template) {
             teks += `❍┤ Motor : ${data.result.motor}\n`
             teks += `❍┤ Jalan Kaki : ${data.result.jalan_kaki}\n`
             teks += `   ╰───────────────❏\n`
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'urbandictionary':
             var { data } = await axios.get(`http://lolhuman.herokuapp.com/api/urdict?apikey=9b817532fadff8fc7cb86862&query=${one}`)
@@ -832,18 +829,18 @@ switch (template) {
                 teks += `\`\`\`Defined Id : ${x.defid}\`\`\`\n\n`
                 teks += `\`\`\`Example : ${x.example}\`\`\`\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'chord':
             if (!one) return m.reply(`Example: ${usedPrefix + command} ${template} |Melukis senja`)
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/chord?apikey=9b817532fadff8fc7cb86862&query=${one}`)
             var teks = `Title : ${data.result.title}\n`
             teks += `Chord : \n${data.result.chord}`
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'heroml':
             if (!one) return m.reply(`Example: ${usedPrefix + command} ${template} |Fanny`)
@@ -903,9 +900,9 @@ switch (template) {
                 teks += `${x.title}\n`
                 teks += `${x.url}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'jadwaltv':
             if (!one) return m.reply(`Example: ${usedPrefix + command} ${template} |RCTI`)
@@ -914,9 +911,9 @@ switch (template) {
             for (var x in data.result) {
                 teks += `${x} - ${data.result[x]}\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'jadwaltvnow':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/jadwaltv/now?apikey=9b817532fadff8fc7cb86862`)
@@ -924,9 +921,9 @@ switch (template) {
             for (var x in data.result) {
                 teks += `${x.toUpperCase()}${data.result[x]}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'newsinfo':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/newsinfo?apikey=9b817532fadff8fc7cb86862`)
@@ -939,9 +936,9 @@ switch (template) {
                 teks += `Published : ${x.publishedAt}\n`
                 teks += `Description : ${x.description}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'cnnindonesia':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/cnnindonesia?apikey=9b817532fadff8fc7cb86862`)
@@ -952,9 +949,9 @@ switch (template) {
                 teks += `Tipe : ${x.tipe}\n`
                 teks += `Published : ${x.waktu}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'cnnnasional':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/cnnindonesia/nasional?apikey=9b817532fadff8fc7cb86862`)
@@ -965,9 +962,9 @@ switch (template) {
                 teks += `Tipe : ${x.tipe}\n`
                 teks += `Published : ${x.waktu}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'cnninternasional':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/cnnindonesia/internasional?apikey=9b817532fadff8fc7cb86862`)
@@ -978,9 +975,9 @@ switch (template) {
                 teks += `Tipe : ${x.tipe}\n`
                 teks += `Published : ${x.waktu}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'infogempa':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/infogempa?apikey=9b817532fadff8fc7cb86862`)
@@ -1009,9 +1006,9 @@ switch (template) {
             teks += `Udara : ${data.result.udara}\n`
             teks += `Permukaan laut : ${data.result.permukaan_laut}\n`
             conn.sendMessage(m.chat, { location: { degreesLatitude: data.result.latitude, degreesLongitude: data.result.longitude } })
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'covidindo':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/corona/indonesia?apikey=9b817532fadff8fc7cb86862`)
@@ -1019,9 +1016,9 @@ switch (template) {
             teks += `Sembuh : ${data.result.sembuh}\n`
             teks += `Dirawat : ${data.result.dirawat}\n`
             teks += `Meninggal : ${data.result.meninggal}`
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'covidglobal':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/corona/global?apikey=9b817532fadff8fc7cb86862`)
@@ -1029,9 +1026,9 @@ switch (template) {
             teks += `Sembuh : ${data.result.sembuh}\n`
             teks += `Dirawat : ${data.result.dirawat}\n`
             teks += `Meninggal : ${data.result.meninggal}`
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'kodepos':
             if (!one) return m.reply(`Example: ${usedPrefix + command} ${template} |Slemanan or ${usedPrefix + command} ${template} |66154`)
@@ -1041,9 +1038,9 @@ switch (template) {
             teks += `Kecamatan : ${data.result[0].subdistrict}\n`
             teks += `Kelurahan : ${data.result[0].urban}\n`
             teks += `Kode Pos : ${data.result[0].postalcode}`
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'jadwalbola':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/jadwalbola?apikey=9b817532fadff8fc7cb86862`)
@@ -1055,9 +1052,9 @@ switch (template) {
                 teks += `Match : ${x.match}\n`
                 teks += `TV : ${x.tv}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'indbeasiswa':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/indbeasiswa?apikey=9b817532fadff8fc7cb86862`)
@@ -1066,9 +1063,9 @@ switch (template) {
                 teks += `Title : ${x.title}\n`
                 teks += `Link : ${x.link}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'hoax':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/turnbackhoax?apikey=9b817532fadff8fc7cb86862`)
@@ -1079,9 +1076,9 @@ switch (template) {
                 teks += `Posted : ${x.posted}\n`
                 teks += `Description : ${x.desc}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
 
         // Movie & Story
@@ -1114,9 +1111,9 @@ switch (template) {
                 teks += `Total Episode : ${x.total_episode}\n`
                 teks += `Genre : ${x.genre.join(', ')}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'wattpad':
             if (!one) return m.reply(`Example: ${usedPrefix + command} ${template} |https://www.wattpad.com/707367860-kumpulan-quote-tere-liye-tere-liye-quote-quote`)
@@ -1146,18 +1143,18 @@ switch (template) {
                 teks += `Create date: ${x.createDate}\n`
                 teks += `Coment count: ${x.commentCount}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'cerpen':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/cerpen?apikey=9b817532fadff8fc7cb86862`)
             var teks = `Title : ${data.result.title}\n`
             teks += `Creator : ${data.result.creator}\n`
             teks += `Story :\n${data.result.cerpen}`
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'ceritahoror':
             var { data } = await axios.get(`https://api.lolhuman.xyz/api/ceritahoror?apikey=9b817532fadff8fc7cb86862`)
@@ -1203,9 +1200,9 @@ switch (template) {
                 teks += `Price : ${x.priceText}\n`
                 teks += `Price : ${x.price}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'shopee':
             if (!one) return m.reply(`Example: ${usedPrefix + command} ${template} |tas gendong`)
@@ -1218,9 +1215,9 @@ switch (template) {
                 teks += `Lokasi : ${x.shop_loc}\n`
                 teks += `Link : ${x.link_produk}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
         case 'google':
             if (!one) return m.reply(`Example: ${usedPrefix + command} ${template} |loli kawaii`)
@@ -1231,9 +1228,9 @@ switch (template) {
                 teks += `Link : ${x.link}\n`
                 teks += `Desc : ${x.desc}\n\n`
             }
-            await conn.sendButton(m.chat, teks, wm, null, [
+            conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             break
 
         // Random Text //
@@ -1284,9 +1281,9 @@ switch (template) {
                 var teks = `Positif : ${data.result.positif}\n`
                 teks += `Negative : ${data.result.negatif}\n`
                 teks += `Deskripsi : ${data.result.deskripsi}`
-                await conn.sendButton(m.chat, teks, wm, null, [
+                conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             })
             break
         case 'weton':
@@ -1296,9 +1293,9 @@ switch (template) {
                 teks += `Pekerjaan : ${data.result.pekerjaan}\n`
                 teks += `Rejeki : ${data.result.rejeki}\n`
                 teks += `Jodoh : ${data.result.jodoh}`
-                await conn.sendButton(m.chat, teks, wm, null, [
+                conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             })
             break
         case 'jadian':
@@ -1306,9 +1303,9 @@ switch (template) {
             axios.get(`https://api.lolhuman.xyz/api/jadian/${args[1]}/${args[2]}/${args[3]}?apikey=9b817532fadff8fc7cb86862`).then(({ data }) => {
                 var teks = `Karakteristik : ${data.result.karakteristik}\n`
                 teks += `Deskripsi : ${data.result.deskripsi}`
-                await conn.sendButton(m.chat, teks, wm, null, [
+                conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             })
             break
         case 'tebakumur':
@@ -1316,9 +1313,9 @@ switch (template) {
             axios.get(`https://api.lolhuman.xyz/api/tebakumur?apikey=9b817532fadff8fc7cb86862&name=${one}`).then(({ data }) => {
                 var teks = `Nama : ${data.result.name}\n`
                 teks += `Umur : ${data.result.age}`
-                await conn.sendButton(m.chat, teks, wm, null, [
+                conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, frx)
             })
             break
 

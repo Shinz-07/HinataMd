@@ -3,8 +3,7 @@ import fetch = from 'node-fetch'
 import fs from 'fs'
 
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, isPrems, isOwner, command }) => {
-let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
+
 let imgr = flaaa.getRandom()
 
 if (command == 'savefile') {
