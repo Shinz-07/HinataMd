@@ -1,4 +1,4 @@
-let handler = async (m, { conn, isOwner }) => {
+let handler = async (m, { conn, usedPrefix, isOwner }) => {
 	let groups = Object.values(await conn.groupFetchAllParticipating()),
 		txt = `*GROUPS LIST*\n\n*Total:* ${groups.length}\n\n`
 	for (let i = 0; i < groups.length; i++) {

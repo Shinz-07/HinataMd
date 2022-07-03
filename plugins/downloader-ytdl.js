@@ -7,37 +7,11 @@ import fetch from 'node-fetch'
 
 
 let handler = async (m, { conn, args, isPrems, isOwner }) => {
-  
+let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif']
+let frx = frnya.getRandom()
+
     if (!args[0]) return m.reply('Link?')
-  
-
-
-//  const ytv = await youtubedl(a).catch(async () => await  youtubedlv2(a))
-// const ytv_dl = await ytv.video[q].download()
-
-  let pp = await( await conn.profilePictureUrl(conn.user.jid, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'))
-  //or global.thumb
-  let namae = conn.getName(m.sender)
-  
-const trol = {
-	key : {
-                          participant : '0@s.whatsapp.net'
-                        },
-       message: {
-                    orderMessage: {
-                            itemCount : 999999999999,
-                            itemCoun : 404,
-                            surface : 404,
-                            message: `© ${conn.user.name}\n`,
-                            orderTitle: 'B',
-                            thumbnail: await (await fetch(pp)).buffer(), 
-                            sellerJid: '0@s.whatsapp.net'
-          
-                          }
-                        }
-                      }
-  
-const sections = [
+    const sections = [
 	{
 	title: "Select Type Media Here !",
 	rows: [
@@ -65,7 +39,7 @@ const listMessage = {
   sections
 }
 
-return conn.sendMessage(m.chat, listMessage, { quoted: trol  })
+return conn.sendMessage(m.chat, listMessage, { quoted: frx  })
 }
 
 handler.help = ['ytd']

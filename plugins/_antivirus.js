@@ -9,6 +9,25 @@ export async function before(m, { conn, isAdmin, isBotAdmin }) {
     const isAntiVirtex = isVirtex.exec(m.text)
     
     if (chat.antiVirtex && isAntiVirtex) {
+    
+    let regs = /(ผิดุท้เึางืผิดุท้เึางื)/i
+   let isVertexThai = regs.exec(m.text)
+   if (isVertexThai && !m.fromMe) {
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regk = /(♚㜸ཽཽࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ͢͢㜺ࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣩࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ㜸ཽཽཽ͢͢͢♚)/i
+   let isVertexSymbol = regk.exec(m.text)
+   if (isVertexSymbol && !m.fromMe) {
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
+   let regp = /(๒๒)/i
+   let isVertexsThai= regp.exec(m.text)
+   if (isVertexsThai && !m.fromMe) {
+   conn.groupParticipantsUpdate(m.chat, [m.sender], "remove")
+   }
+   
     if (m.message && m.isBaileys && m.quoted && m.quoted.mtype === 'orderMessage' && !(m.quoted.token && m.quoted.orderId)) {
             m.reply('Bug Troli Detected\n\n' + require('util').format(m.key))
             await this.clearMessage(m.chat, m.key)

@@ -59,16 +59,16 @@ let handler = async (m, { conn, groupMetadata, usedPrefix, text, args, command }
     let dmg = (player.sword  * 5 + player.armor * 5 - sum)
     dmg = dmg < 0 ? Math.abs(dmg) : 0
 
-    player.healt -= dmg
+    player.health -= dmg
     player.lasthunt = new Date * 1 // waktu hunt 2menit
 
-    if (player.healt < 0) {
+    if (player.health < 0) {
       let msg = `*@${m.sender.split("@")[0]}* Anda Mati Di Bunuh Oleh ${monsterName}`
       if (player.level > 0) {
         player.level -= 1
         msg += `\nLevel Anda Turun 1 Karena Mati Saat Berburu!`
       }
-      player.healt = 100
+      player.health = 100
       await conn.sendButton(m.chat, msg, wm, null, [['Menu', `${usedPrefix}menu`],['Owner', `${usedPrefix}owner`]], m, { mentions: conn.parseMention(msg) })
       return
     }
@@ -76,7 +76,7 @@ let handler = async (m, { conn, groupMetadata, usedPrefix, text, args, command }
     player.money += coins * 1
     player.exp += exp * 1
 
-    let pesan = `*@${m.sender.split("@")[0]}* Menemukan Dan Membunuh *${monsterName}*\nMendapatkan ${new Intl.NumberFormat('en-US').format(coins)} coins & ${new Intl.NumberFormat('en-US').format(exp)} XP\nBerkurang -${dmg}Hp, Tersisa ${player.healt}/${100}`
+    let pesan = `*@${m.sender.split("@")[0]}* Menemukan Dan Membunuh *${monsterName}*\n\nMendapatkan ${new Intl.NumberFormat('en-US').format(coins)} coins & ${new Intl.NumberFormat('en-US').format(exp)} XP\nBerkurang -${dmg}Hp, Tersisa ${player.health}/${100}`
     await conn.sendButton(m.chat, pesan, wm, null, [['Menu', `${usedPrefix}menu`],['Owner', `${usedPrefix}owner`]], m, { mentions: conn.parseMention(pesan) })
   } else throw `Tunggu *00:0${cd1}:${cd2}* Untuk Berburu Lagi`
 }

@@ -1,13 +1,10 @@
 import fetch from "node-fetch"
 import { readFileSync } from "fs"
 
-
-
 export async function all(m) {
 
   //Kalo mau menggokil pake ini
   let pp = await this.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
-
   let stc = readFileSync('./ynkts.webp')
 
 if (m.isBaileys) return
@@ -29,7 +26,6 @@ sourceUrl: 'http://github.com/AyGemuy', thumbnail: await( await fetch(pp)).buffe
           //thumbnail: await( await fetch(pp)).buffer()
   }
  }}, { quoted: m })
-          
         }
     } catch (e) {
         return

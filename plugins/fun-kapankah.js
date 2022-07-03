@@ -2,6 +2,7 @@
 import fetch from 'node-fetch'
 import fs from 'fs'
 
+let toM = a => '@' + a.split('@')[0]
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
