@@ -63,14 +63,11 @@ handler.all = async function (m) {
     }
     } }
 		// Fake 🤥
-		global.ftroli = { key: { remoteJid: 'status@broadcast', participant: '0@s.whatsapp.net' }, message: { orderMessage: { itemCount: 9999999999999999999999999999999999999999999999999999999, status: 1, surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
-		global.fkontak = { key: {  participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg'), thumbnail: fs.readFileSync('./thumbnail.jpg'),sendEphemeral: true}}}
+		global.ftroli = { key: {participant : '0@s.whatsapp.net'}, message: { orderMessage: { itemCount: 9999999999999999999999999999999999999999999999999999999, status: 1, surface: 1, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' } } }
+		global.fkontak = { key: {participant : '0@s.whatsapp.net'}, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg'), thumbnail: fs.readFileSync('./thumbnail.jpg'),sendEphemeral: true}}}
         global.fvn = {
-            key: { 
-                 
-                 participant: `0@s.whatsapp.net`, ...(m.chat ? 
-            { remoteJid: "17608914335-1625305606@g.us" } : {}) 
-                       },
+            key: {
+                 participant : '0@s.whatsapp.net'},
             message: { 
                "audioMessage": {
                         "mimetype":"audio/ogg; codecs=opus",
@@ -81,11 +78,8 @@ handler.all = async function (m) {
                             }
                
                 global.ftextt = {
-            key: { 
-                 
-                 participant: `0@s.whatsapp.net`, ...(m.chat ? 
-            { remoteJid: "17608914335-1625305606@g.us" } : {}) 
-                       },
+            key: {
+                 participant : '0@s.whatsapp.net'},
             message: { 
                "extendedTextMessage": {
                         "text":wm,
@@ -96,26 +90,20 @@ handler.all = async function (m) {
                             }
                
                   global.fliveLoc = {
-            key:
-            { 
-            participant: `0@s.whatsapp.net`, ...(m.chat  ? 
-            { remoteJid: "status@broadcast" } : {}) },
+            key: {
+            participant : '0@s.whatsapp.net'},
             message: { "liveLocationMessage": { "caption":"by : Hinata-Md","h": `${wm}`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')}}
            }
                
                   global.fliveLoc2 = {
-            key:
-            { 
-            participant: `0@s.whatsapp.net`, ...(m.chat ? 
-            { remoteJid: "status@broadcast" } : {}) },
+            key: { 
+            participant : '0@s.whatsapp.net'},
             message: { "liveLocationMessage": { "title": "Hinata-Md","h": wm, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')}}
            }
                
                    global.ftoko = {
        key: {
-                   
-                   participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "17608914335@s.whatsapp.net" } : {})
-               },
+                   participant : '0@s.whatsapp.net'},
                message: {
                    "productMessage": {
                        "product": {
@@ -137,8 +125,7 @@ handler.all = async function (m) {
                
                      global.fdocs = {
            key : {
-                  participant : '0@s.whatsapp.net'
-                               },
+                  participant : '0@s.whatsapp.net'},
               message: {
                            documentMessage: {
                            title: wm, 
@@ -148,28 +135,23 @@ handler.all = async function (m) {
                              }
                
                     global.fgclink = {
-           "key": {
-               "fromMe": false,
-               "participant": "0@s.whatsapp.net",
-               "remoteJid": "0@s.whatsapp.net"
+           key: {
+               participant: "0@s.whatsapp.net"
            },
-           "message": {
-               "groupInviteMessage": {
-                   "groupJid": "17608914335-1625305606@g.us",
-                   "inviteCode": "null",
-                   "groupName": "Kawan Hinata-Md", 
-                   "caption": wm, 
-                   'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')
+           message: {
+               groupInviteMessage: {
+                   groupJid: "17608914335-1625305606@g.us",
+                   inviteCode: null,
+                   groupName: "Kawan Hinata-Md", 
+                   caption: wm, 
+                   jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
                }
            }
        }
        
                     global.fgif = {
-            key: { 
-                 
-                 participant: `0@s.whatsapp.net`, ...(m.chat ? 
-            { remoteJid: "17608914335-1625305606@g.us" } : {}) 
-                       },
+            key: {
+                 participant : '0@s.whatsapp.net'},
             message: { 
                         "videoMessage": { 
                         "title": wm,
