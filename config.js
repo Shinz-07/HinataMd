@@ -6,16 +6,16 @@ import moment from 'moment-timezone'
 
 /**Owner number**/
 global.owner = [
-  ['6282195322106', '️Owner One Hinata-Md', true],
-  ['6282195322106', '️Owner Two Hinata-Md', true],
-  ['6282195322106', '️Owner Three Hinata-Md', true],
-  ['6282195322106', '️Owner Four Hinata-Md', true],
+  ['6283148375193', '️Owner One Hinata-Md', true],
+  ['6283148375193', '️Owner Two Hinata-Md', true],
+  ['6283148375193', '️Owner Three Hinata-Md', true],
+  ['6283148375193', '️Owner Four Hinata-Md', true],
   ['6282195322106', '️Owner Five Hinata-Md', true],
-  ['6282195322106', '️Owner Six Hinata-Md', true],
-  ['6282195322106', '️Owner Seven Hinata-Md', true],
-  ['6282195322106', '️Owner Eight Hinata-Md', true],
-  ['6282195322106', '️Owner Nine Hinata-Md', true],
-  ['6282195322106', '️Owner Teen Hinata-Md', true]
+  ['6283148375193', '️Owner Six Hinata-Md', true],
+  ['6283148375193', '️Owner Seven Hinata-Md', true],
+  ['6283148375193', '️Owner Eight Hinata-Md', true],
+  ['6283148375193', '️Owner Nine Hinata-Md', true],
+  ['6283148375193', '️Owner Teen Hinata-Md', true]
   // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
 global.mods = [] // Want some help?
