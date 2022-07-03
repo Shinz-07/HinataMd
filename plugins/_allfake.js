@@ -4,7 +4,8 @@ import fs from 'fs'
 import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 
-export async function all(m, { conn, args, usedPrefix, command, isAdmin, isBotAdmin }) {
+let handler = m => m
+handler.all = async function (m, { conn, args, usedPrefix, command, isAdmin, isBotAdmin }) {
     let name = await conn.getName(m.sender) 
 	let pp = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 	try {
@@ -12,18 +13,16 @@ export async function all(m, { conn, args, usedPrefix, command, isAdmin, isBotAd
 	} catch (e) {
 	} finally {
 	// Fake 🤥
- let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
- let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
  let ftroli = {quoted: { key: {participant : '0@s.whatsapp.net'}, message: { orderMessage: { itemCount: 2022, status: 1, surface: 1, message: wm, orderTitle: `✗ 𝐂𝐦𝐝: ${command}`, sellerJid: '0@s.whatsapp.net' } } }}
  let fkontak = {quoted: { key: {participant : '0@s.whatsapp.net'}, message: { 'contactMessage': { 'displayName': `✗ 𝐂𝐦𝐝: ${command}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg'), thumbnail: fs.readFileSync('./thumbnail.jpg'),sendEphemeral: true}}}}
  let fvn = {quoted: { key: {participant : '0@s.whatsapp.net'},message: { "audioMessage": {"mimetype":"audio/ogg; codecs=opus","seconds": "2022","ptt": "true"} } }}
- let floc = {quoted: { key: { participant : '0@s.whatsapp.net'}, message: { "liveLocationMessage": { "caption": `✗ 𝐂𝐦𝐝: ${command}`,"h": `${await conn.getName(m.sender)}`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')}} }}
+ let floc = {quoted: { key: { participant : '0@s.whatsapp.net'}, message: { "liveLocationMessage": { "caption": `✗ 𝐂𝐦𝐝: ${command}`,"h": `${name}`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')}} }}
  let ftoko = {quoted: { key: { participant : '0@s.whatsapp.net'},message: { "productMessage": {"product": {"productImage":{"mimetype": "image/jpeg","jpegThumbnail": fs.readFileSync('./thumbnail.jpg')}, "title": `✗ 𝐂𝐦𝐝: ${command}`, "description": `${wm}`, "currencyCode": "USD", "priceAmount1000": "2022", "retailerId": "Ghost", "productImageCount": 1},"businessOwnerJid": `0@s.whatsapp.net`}}}}
  let fdocs = {quoted: { key : { participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `✗ 𝐂𝐦𝐝: ${command}`,  jpegThumbnail: fs.readFileSync('./thumbnail.jpg') }}}}
  let fgclink = {quoted: {key: {participant : '0@s.whatsapp.net'},message: {groupInviteMessage: {groupJid: "17608914335-1625305606@g.us",inviteCode: null,groupName: `✗ 𝐂𝐦𝐝: ${command}`,  caption: wm,  jpegThumbnail: fs.readFileSync('./thumbnail.jpg') }} }}
  let fgif = {quoted: {key: { participant : '0@s.whatsapp.net'}, message: {  "videoMessage": {  "title": `✗ 𝐂𝐦𝐝: ${command}`, "h": `Hmm`, 'seconds': '999999999',  'gifPlayback': 'true',  'caption': wm, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg') } } } }
 
-let frnya = ['ftroli', 'fkontak', 'fvn', 'floc', 'ftoko', 'ftoko', 'fdocs', 'fgclink', 'fgif', 'fdoc']
+let frnya = ['ftroli', 'fkontak', 'fvn', 'floc', 'ftoko', 'ftoko', 'fdocs', 'fgclink', 'fgif']
 global.frx = frnya.getRandom()
 
 		
@@ -180,6 +179,8 @@ global.frx = frnya.getRandom()
                              */
 	}
 }
+
+export default handler 
 
 function ucapan() {
     const time = moment.tz('Asia/Jakarta').format('HH')
