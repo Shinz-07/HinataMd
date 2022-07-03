@@ -33,7 +33,7 @@ let ftroli = {quoted: { key: {participant : '0@s.whatsapp.net'}, message: { orde
  if (!text) return m.reply(Array.from(frnya))
  await conn.sendButton(m.chat, `Fake ${text}`, wm, null, [
                 ['Ok!', `${usedPrefix + command}`]
-            ], m, text)
+            ], text)
  
     }
     
