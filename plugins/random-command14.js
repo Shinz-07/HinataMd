@@ -128,7 +128,7 @@ if (!args[0]) throw `Contoh:\n${usedPrefix + command} baka
 `
 
 if (args[0] == 'artikata') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/arti-kata?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -140,7 +140,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], frx)
 }
 if (args[0] == 'artimimpi') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/artimimpi?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -152,7 +152,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], frx)
 }
 if (args[0] == 'artinama') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/artinama?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -164,7 +164,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], frx)
 }
 if (args[0] == 'kuadrat') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/bdr/kuadrat?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -176,7 +176,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], frx)
 }
 if (args[0] == 'kubik') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/bdr/kubik?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -212,7 +212,7 @@ await conn.sendButton(m.chat, caption, wm, x.img, [
             ], frx)
 }
 if (args[0] == 'byte') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/byte-converter?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -224,7 +224,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], frx)
 }
 if (args[0] == 'cekip') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cekip?ip=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -301,7 +301,7 @@ await conn.sendButton(m.chat, caption, wm, x.result, [
             ], frx)
 }
 if (args[0] == 'cuaca') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cuaca?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -322,7 +322,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], frx)
 }
 if (args[0] == 'cuttly') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cuttly?url=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -485,7 +485,7 @@ channel: ${v.channel}
             ], frx)
 }
 if (args[0] == 'katabijak') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/kata-bijak?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -542,7 +542,7 @@ jenis: ${v.jenis}
             ], frx)
 }
 if (args[0] == 'lirik') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/lirik?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -563,7 +563,7 @@ await conn.sendButton(m.chat, caption, wm, img, [
             ], frx)
 }
 if (args[0] == 'mediafire') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/mediafire?url=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -586,7 +586,7 @@ await conn.sendButton(m.chat, caption, wm, img, [
             ], frx)
 }
 if (args[0] == 'moddroid') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/moddroid?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -603,7 +603,7 @@ title: ${v.title}
             ], frx)
 }
 if (args[0] == 'nabi') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/nabi?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -640,7 +640,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], frx)
 }
 if (args[0] == 'nik') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |12345678`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |12345678`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/nik-checker?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -736,7 +736,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], frx)
 }
 if (args[0] == 'pin') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let img = `https://leyscoders-api.herokuapp.com/api/pinsearch?q=${one}&apikey=MIMINGANZ`
 let caption = `*Result:*
@@ -746,7 +746,7 @@ await conn.sendButton(m.chat, caption, wm, img, [
             ], frx)
 }
 if (args[0] == 'playmp3') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/playmp3?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -761,7 +761,7 @@ await conn.sendButton(m.chat, caption, wm, x.result.thumb, [
             ], frx)
 }
 if (args[0] == 'playmp4') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/playmp4?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -778,24 +778,24 @@ await conn.sendButton(m.chat, caption, wm, x.result.thumb, [
 if (args[0] == 'ppcouple') {
 let res = await fetch(`https://leyscoders-api.herokuapp.com/api/ppcouple?apikey=MIMINGANZ`)
 let json = await res.json()
-conn.sendButton(m.chat, caption, wm, x.result.male, [
+await conn.sendButton(m.chat, caption, wm, x.result.male, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
             ], frx)
-conn.sendButton(m.chat, caption, wm, x.result.female, [
+await conn.sendButton(m.chat, caption, wm, x.result.female, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
             ], frx)
 }
 if (args[0] == 'quotemaker') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let img = `https://leyscoders-api.herokuapp.com/api/quote-maker?text=${one}&apikey=MIMINGANZ`
-conn.sendButton(m.chat, caption, wm, img, [
+await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
             ], frx)
 }
 if (args[0] == 'randomwaifu') {
 let img = `https://leyscoders-api.herokuapp.com/api/random-waifu?apikey=MIMINGANZ`
-conn.sendButton(m.chat, caption, wm, img, [
+await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
             ], frx)
 }
@@ -818,7 +818,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], frx)
 }
 if (args[0] == 'rexdlsearch') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/rexdl-search?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -834,7 +834,7 @@ await conn.sendButton(m.chat, caption, wm, x.img, [
             ], frx)
 }
 if (args[0] == 'rexdldetail') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/rexdl-detail?url=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -852,7 +852,7 @@ await conn.sendButton(m.chat, caption, wm, x.img, [
             ], frx)
 }
 if (args[0] == 'sfile') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/sfile?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -870,7 +870,7 @@ url: ${v.url}
             ], frx)
 }
 if (args[0] == 'shopee') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/shopee?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
@@ -888,7 +888,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             ], frx)
 }
 if (args[0] == 'shrturl') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/shrturl?url=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -936,23 +936,23 @@ kutipan: ${v.kutipan}
             ], frx)
 }
 if (args[0] == 'sshp') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let img = `https://leyscoders-api.herokuapp.com/api/ssweb-hp?url=${one}&apikey=MIMINGANZ`
-conn.sendButton(m.chat, caption, wm, img, [
+await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
             ], frx)
 }
 if (args[0] == 'ttimg') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let img = `https://leyscoders-api.herokuapp.com/api/textto-image?text=${one}`
-conn.sendButton(m.chat, caption, wm, img, [
+await conn.sendButton(m.chat, caption, wm, img, [
                 ['Sticker', `${usedPrefix}sticker`]
             ], frx)
 }
 if (args[0] == 'yts') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/yt-search?q=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -972,7 +972,7 @@ await conn.sendButton(m.chat, caption, wm, `${x.result[0].thumb}`, [
             ], frx)
 }
 if (args[0] == 'ytdl') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/ytdl?url=${one}&apikey=MIMINGANZ`)
 let x = await f.json()
@@ -992,7 +992,7 @@ await conn.sendButton(m.chat, caption, wm, `${x.result[0].thumb}`, [
             ], frx)
 }
 if (args[0] == 'ytmp3') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/ytmp3?url=${one}`)
 let x = await f.json()
@@ -1012,7 +1012,7 @@ await conn.sendButton(m.chat, caption, wm, `${x.result[0].thumb}`, [
             ], frx)
 }
 if (args[0] == 'ytmp4') {
-if (!one) return m.reply(`Example: ${usedPrefix + command} ${args0]} |query`)
+if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/ytmp4?url=${one}`)
 let x = await f.json()

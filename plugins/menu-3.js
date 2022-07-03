@@ -34,6 +34,10 @@ _Jika Respon Tidak Muncul Kemungkinan Terjadi Error_
 `,
 }
 let handler = async (m, { conn, command, groupMetadata, usedPrefix: _p, __dirname, args }) => {
+let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif']
+let frx = frnya.getRandom()
+let ktnya = ['Mungkin menu ini bermanfaat?', 'Terimakasih sudah menggunakan bot ini', 'Semoga gak erorr', 'Jika lama kemungkiman erorr atau delay', 'Menampilkan menu', 'Wait...', 'Dua tiga kucing berlari', 'Bentar bang akan kutampilkan menunya', 'Prosess...']
+let ktx = ktnya.getRandom()
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let { exp, limit, level, role, money, lastclaim, lastweekly, registered, regTime, age, banned, pasangan } = global.db.data.users[who]
     let { min, xp, max } = xpRange(level, global.multiplier)
@@ -202,70 +206,66 @@ let handler = async (m, { conn, command, groupMetadata, usedPrefix: _p, __dirnam
   if (teks == 'nocategory') tags = {
     'nocategory': 'No Category'
   }
-  
-  const trol = {
-	key : {
-                          participant : '0@s.whatsapp.net'
-                        },
-       message: {
-                    orderMessage: {
-                            itemCount : 2022,
-                            itemCoun : 2022,
-                            surface : 2022,
-                            message: wm,
-                            orderTitle: name,
-                            thumbnail: await (await fetch(pp)).buffer(), 
-                            sellerJid: '0@s.whatsapp.net'
-          
-                          }
-                        }
-                      }
                       
     try {
-    let desk = `\n\nMungkin menu ini bisa membantu?`
       const sections = [
    {
+	title: `${htki} MAIN ${htka}`,
+	rows: [
+	    {title: `⚡ ${emot} SPEED BOT`, rowId: ".ping", description: "Menampilkan kecepatan respon BOT"},
+	    {title: `💌 ${emot} OWNER BOT`, rowId: ".owner", description: "Menampilkan List owner BOT"},
+	    {title: `📔 ${emot} SCRIPT BOT`, rowId: ".sc", description: `Source Code`},
+	]
+    },{
+	title: `${htki} SUPPORT ${htka}`,
+	rows: [
+	    {title: `🔖 ${emot} SEWA`, rowId: ".sewa", description: "Menampilkan list harga sewa BOT"},
+	    {title: `🌟 ${emot} LIST PREMIUM`, rowId: ".premlist", description: "Menampilkan list harga premium"},
+	    {title: `💹 ${emot} DONASI`, rowId: ".donasi", description: 'Support BOT agar lebih fast respon'},
+	]
+	},{
 	title: `${htki} MENU ${htka}`,
 	rows: [
-	{title: `${emoj} ${emot} Absen ${emot}`, rowId: ".menulist absen", description: desk},
-	{title: `${emoj} ${emot} Admin ${emot}`, rowId: ".menulist admin", description: desk},
-	{title: `${emoj} ${emot} Advanced ${emot}`, rowId: ".menulist advanced", description: desk},
-	{title: `${emoj} ${emot} Anonymous ${emot}`, rowId: ".menulist anonymous", description: desk},
-	{title: `${emoj} ${emot} Audio ${emot}`, rowId: ".menulist audio", description: desk},
-	{title: `${emoj} ${emot} Baileys ${emot}`, rowId: ".menulist Baileys", description: desk},
-	{title: `${emoj} ${emot} Database ${emot}`, rowId: ".menulist database", description: desk},
-	{title: `${emoj} ${emot} Downloader ${emot}`, rowId: ".menulist downloader", description: desk},
-	{title: `${emoj} ${emot} Edukasi ${emot}`, rowId: ".menulist edukasi", description: desk},
-	{title: `${emoj} ${emot} Fun ${emot}`, rowId: ".menulist fun", description: desk},
-	{title: `${emoj} ${emot} Game ${emot}`, rowId: ".menulist game", description: desk},
-	{title: `${emoj} ${emot} Group ${emot}`, rowId: ".menulist group", description: desk},
-	{title: `${emoj} ${emot} Host ${emot}`, rowId: ".menulist host", description: desk},
-	{title: `${emoj} ${emot} Info ${emot}`, rowId: ".menulist info", description: desk},
-	{title: `${emoj} ${emot} Internet ${emot}`, rowId: ".menulist internet", description: desk},
-	{title: `${emoj} ${emot} Jadian ${emot}`, rowId: ".menulist jadian", description: desk},
-	{title: `${emoj} ${emot} Jadibot ${emot}`, rowId: ".menulist jadibot", description: desk},
-	{title: `${emoj} ${emot} Kerang ${emot}`, rowId: ".menulist kerang", description: desk},
-	{title: `${emoj} ${emot} Main ${emot}`, rowId: ".menulist main", description: desk},
-	{title: `${emoj} ${emot} Maker ${emot}`, rowId: ".menulist maker", description: desk},
-	{title: `${emoj} ${emot} Nocategory ${emot}`, rowId: ".menulist nocategory", description: desk},
-	{title: `${emoj} ${emot} Nsfw ${emot}`, rowId: ".menulist nsfw", description: desk},
-	{title: `${emoj} ${emot} Nulis ${emot}`, rowId: ".menulist nulis", description: desk},
-	{title: `${emoj} ${emot} Owner ${emot}`, rowId: ".menulist owner", description: desk},
-	{title: `${emoj} ${emot} Premium ${emot}`, rowId: ".menulist premium", description: desk},
-	{title: `${emoj} ${emot} Primbon ${emot}`, rowId: ".menulist primbon", description: desk},
-	{title: `${emoj} ${emot} Quotes ${emot}`, rowId: ".menulist quotes", description: desk},
-	{title: `${emoj} ${emot} Quran ${emot}`, rowId: ".menulist quran", description: desk},
-	{title: `${emoj} ${emot} Random ${emot}`, rowId: ".menulist random", description: desk},
-	{title: `${emoj} ${emot} RPG ${emot}`, rowId: ".menulist rpg", description: desk},
-	{title: `${emoj} ${emot} Sticker ${emot}`, rowId: ".menulist sticker", description: desk},
-	{title: `${emoj} ${emot} Tools ${emot}`, rowId: ".menulist tools", description: desk},
-	{title: `${emoj} ${emot} Vote ${emot}`, rowId: ".menulist vote", description: desk},
-	{title: `${emoj} ${emot} XP ${emot}`, rowId: ".menulist xp", description: desk}
+	{title: `${emoj} ${emot} All Menu ${emot}`, rowId: ".menulist all", description: ktx},
+	{title: `${emoj} ${emot} Absen ${emot}`, rowId: ".menulist absen", description: ktx},
+	{title: `${emoj} ${emot} Admin ${emot}`, rowId: ".menulist admin", description: ktx},
+	{title: `${emoj} ${emot} Advanced ${emot}`, rowId: ".menulist advanced", description: ktx},
+	{title: `${emoj} ${emot} Anonymous ${emot}`, rowId: ".menulist anonymous", description: ktx},
+	{title: `${emoj} ${emot} Audio ${emot}`, rowId: ".menulist audio", description: ktx},
+	{title: `${emoj} ${emot} Baileys ${emot}`, rowId: ".menulist Baileys", description: ktx},
+	{title: `${emoj} ${emot} Database ${emot}`, rowId: ".menulist database", description: ktx},
+	{title: `${emoj} ${emot} Downloader ${emot}`, rowId: ".menulist downloader", description: ktx},
+	{title: `${emoj} ${emot} Edukasi ${emot}`, rowId: ".menulist edukasi", description: ktx},
+	{title: `${emoj} ${emot} Fun ${emot}`, rowId: ".menulist fun", description: ktx},
+	{title: `${emoj} ${emot} Game ${emot}`, rowId: ".menulist game", description: ktx},
+	{title: `${emoj} ${emot} Group ${emot}`, rowId: ".menulist group", description: ktx},
+	{title: `${emoj} ${emot} Host ${emot}`, rowId: ".menulist host", description: ktx},
+	{title: `${emoj} ${emot} Info ${emot}`, rowId: ".menulist info", description: ktx},
+	{title: `${emoj} ${emot} Internet ${emot}`, rowId: ".menulist internet", description: ktx},
+	{title: `${emoj} ${emot} Jadian ${emot}`, rowId: ".menulist jadian", description: ktx},
+	{title: `${emoj} ${emot} Jadibot ${emot}`, rowId: ".menulist jadibot", description: ktx},
+	{title: `${emoj} ${emot} Kerang ${emot}`, rowId: ".menulist kerang", description: ktx},
+	{title: `${emoj} ${emot} Main ${emot}`, rowId: ".menulist main", description: ktx},
+	{title: `${emoj} ${emot} Maker ${emot}`, rowId: ".menulist maker", description: ktx},
+	{title: `${emoj} ${emot} Nocategory ${emot}`, rowId: ".menulist nocategory", description: ktx},
+	{title: `${emoj} ${emot} Nsfw ${emot}`, rowId: ".menulist nsfw", description: ktx},
+	{title: `${emoj} ${emot} Nulis ${emot}`, rowId: ".menulist nulis", description: ktx},
+	{title: `${emoj} ${emot} Owner ${emot}`, rowId: ".menulist owner", description: ktx},
+	{title: `${emoj} ${emot} Premium ${emot}`, rowId: ".menulist premium", description: ktx},
+	{title: `${emoj} ${emot} Primbon ${emot}`, rowId: ".menulist primbon", description: ktx},
+	{title: `${emoj} ${emot} Quotes ${emot}`, rowId: ".menulist quotes", description: ktx},
+	{title: `${emoj} ${emot} Quran ${emot}`, rowId: ".menulist quran", description: ktx},
+	{title: `${emoj} ${emot} Random ${emot}`, rowId: ".menulist random", description: ktx},
+	{title: `${emoj} ${emot} RPG ${emot}`, rowId: ".menulist rpg", description: ktx},
+	{title: `${emoj} ${emot} Sticker ${emot}`, rowId: ".menulist sticker", description: ktx},
+	{title: `${emoj} ${emot} Tools ${emot}`, rowId: ".menulist tools", description: ktx},
+	{title: `${emoj} ${emot} Vote ${emot}`, rowId: ".menulist vote", description: ktx},
+	{title: `${emoj} ${emot} XP ${emot}`, rowId: ".menulist xp", description: ktx}
 	]
   }
 ]
 
-let tek = `*Hai ${conn.getName(m.sender)}*
+let tek = `*Hai ${conn.getName(m.sender)}* 👋
 
 *YOUR PROFILE*
 *🏷️ Nama:* *(${name})* ${registered ? '(' + name + ') ' : ''} ( @${who.split("@")[0]} )
@@ -283,7 +283,7 @@ const listMessage = {
   sections
 }
   if (teks == '404') {
-  	return conn.sendMessage(m.chat, listMessage, { quoted: trol  })
+  	return conn.sendMessage(m.chat, listMessage, { quoted: frx  })
     }
     
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}

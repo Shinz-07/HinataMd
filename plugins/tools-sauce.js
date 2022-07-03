@@ -11,9 +11,9 @@ let handler = async (m, { conn}) => {
 		fs.writeFileSync(media, await q.download())
 		let sauce = await sauceClient(media)
 		let txt = sauce.map(({ url, site, similarity, thumbnail, authorName, authorUrl }) => {
-			return `*❔${r} Similarity:* ${similarity}%\n*🔎${r}  Site:* ${site}\n*🔗${r} Url:* ${url}\n*🧧${r} Thumb:* ${thumbnail}\n*🖌️${r} Author Name:* ${authorName}\n*✅${r} Author Url:* ${authorUrl}`
+			return `*❔ Similarity:* ${similarity}%\n*🔎  Site:* ${site}\n*🔗 Url:* ${url}\n*🧧 Thumb:* ${thumbnail}\n*🖌️ Author Name:* ${authorName}\n*✅ Author Url:* ${authorUrl}`
 		}).join('\n\n❑━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━❑\n\n')
-		await conn.sendFile(m.chat, sauce[0].thumbnail, 0, txt.trim(), m, false, {thumbnail: global.thumb2 })
+		await conn.sendFile(m.chat, sauce[0].thumbnail, 0, txt.trim(), m, false, {thumbnail: Buffer.alloc(0) })
 		fs.unlinkSync(media)
 	} else throw 'Reply imagenya'
 }
