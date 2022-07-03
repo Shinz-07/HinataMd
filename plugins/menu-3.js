@@ -34,8 +34,10 @@ _Jika Respon Tidak Muncul Kemungkinan Terjadi Error_
 `,
 }
 let handler = async (m, { conn, command, groupMetadata, usedPrefix: _p, __dirname, args }) => {
-let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif']
-let frx = frnya.getRandom()
+let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
+//let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif']
+//let frx = frnya.getRandom()
+
 let ktnya = ['Mungkin menu ini bermanfaat?', 'Terimakasih sudah menggunakan bot ini', 'Semoga gak erorr', 'Jika lama kemungkiman erorr atau delay', 'Menampilkan menu', 'Wait...', 'Dua tiga kucing berlari', 'Bentar bang akan kutampilkan menunya', 'Prosess...']
 let ktx = ktnya.getRandom()
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -283,7 +285,7 @@ const listMessage = {
   sections
 }
   if (teks == '404') {
-  	return conn.sendMessage(m.chat, listMessage, { quoted: frx  })
+  	return conn.sendMessage(m.chat, listMessage, fdoc)
     }
     
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}

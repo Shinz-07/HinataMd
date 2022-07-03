@@ -10,8 +10,8 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command, isPrems, isOwner }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
-let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif']
-let frx = frnya.getRandom()
+//let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif']
+//let frx = frnya.getRandom()
 
 let imgr = flaaa.getRandom()
 let urut = text.split`|`
@@ -24,7 +24,7 @@ if (command == 'amazon') {
 if (!text) throw `Contoh:\n${usedPrefix + command} Teks`
 let res = await fetch(`https://leyscoders-api.herokuapp.com/api/amazon-search?q=${text}&apikey=MIMINGANZ`)
 let xx = await res.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 *item:* ${x.item}
 *review:* ${x.review}
@@ -40,7 +40,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, x.thumb, [
                 ['Get Picture', `${usedPrefix}get ${x.thumb}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'animanga') {
@@ -54,7 +54,7 @@ Url: ${v.url}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, `${v.result.img}`, [
                 ['Search!', `${usedPrefix + command} ${text}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'leys') {
@@ -137,7 +137,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'artimimpi') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -149,7 +149,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'artinama') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -161,7 +161,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'kuadrat') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -173,7 +173,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'kubik') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -185,31 +185,31 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'beritanews') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/berita-news?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.url}
 `.trim()
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${x.img}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'antaranews') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/antara-news?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.url}
 `.trim()
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${x.img}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'byte') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -221,14 +221,14 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'cekip') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cekip?ip=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 ${x.code_country}
 ${x.country}
@@ -243,24 +243,24 @@ ${x.longitude}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'ceritahoror') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cerita-horor?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.desc}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'cerpen') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cerpen?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.pengarang}
@@ -269,7 +269,7 @@ ${x.story}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'cersex') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cersex?apikey=MIMINGANZ`)
@@ -279,7 +279,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, x.gambar, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'count') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/count-date?tgl=${args[1]}&bln=${args[2]}&thn=${args[3]}&apikey=MIMINGANZ`)
@@ -289,7 +289,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'hujan') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cuaca/hujan?apikey=MIMINGANZ`)
@@ -298,14 +298,14 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, x.result, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'cuaca') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cuaca?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 *Daerah:* ${x.Daerah}
 *Latitude:* ${x.Latitude}
@@ -319,14 +319,14 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'cuttly') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/cuttly?url=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.full_link}
@@ -335,7 +335,7 @@ ${x.hasil}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'darkjoke') {
 let img = `https://leyscoders-api.herokuapp.com/api/darkjoke?apikey=MIMINGANZ`
@@ -343,12 +343,12 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'drakoron') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/drakor-ongoing?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 ${x.title}
 ${x.genre}
@@ -356,7 +356,7 @@ ${x.url}
 `.trim()
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${x.img}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'fakta') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/fakta?apikey=MIMINGANZ`)
@@ -366,7 +366,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'imgbb') {
 let q = m.quoted ? m.quoted : m
@@ -380,13 +380,13 @@ Temp-Url: ${x.delete_url}
 `
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${x.img}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'loker') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/info-loker?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
-let teks = x.map(v => {
+let v = xx.result
+let teks = v.map(v => {
 return `
 📌 *${v.title}*
 Url: ${v.url}
@@ -398,12 +398,12 @@ gaji: ${v.gaji}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, `${v.img}`, [
                 ['Search!', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'gempa') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/infogempa?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 Waktu: ${x.Waktu}
 Lintang: ${x.Lintang}
@@ -414,7 +414,7 @@ Wilayah: ${x.Wilayah}
 `
 await conn.sendButton(m.chat, caption, wm, x.Map, [
                 ['Get Picture', `${usedPrefix}get ${x.Map}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'hoax') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/infohoax?apikey=MIMINGANZ`)
@@ -429,7 +429,7 @@ tanggal: ${x.tanggal}
 `
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${x.img}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'igphoto') {
 let img = `https://leyscoders-api.herokuapp.com/api/instagram/photo?url=${args[1]}&apikey=MIMINGANZ`
@@ -437,7 +437,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Get Picture', `${usedPrefix}get ${img}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'jbioskop') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/jadwal-bioskop?apikey=MIMINGANZ`)
@@ -450,13 +450,13 @@ title: ${x.title}
 `
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${x.img}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'jotakudesu') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/jadwal-otakudesu?apikey=MIMINGANZ`)
 let xx = await f.json()
 let x = xx.animeList
-let teks = x.map(v => {
+let teks = v.map(v => {
 return `
 📌 *${v.anime_name}*
 id: ${v.id}
@@ -466,13 +466,13 @@ link: ${v.link}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, `${v.img}`, [
                 ['Search!', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'jbola') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/jadwalbola?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
-let teks = x.map(v => {
+let v = xx.result
+let teks = v.map(v => {
 return `
 📌 *${v.waktu}*
 kickoff: ${v.kickoff}
@@ -482,7 +482,7 @@ channel: ${v.channel}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, null, [
                 ['Search!', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'katabijak') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -498,7 +498,7 @@ voteCount: ${x.voteCount}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Get Picture', `${usedPrefix}get ${one}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'katabucin') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/katabucin?apikey=MIMINGANZ`)
@@ -512,7 +512,7 @@ voteCount: ${x.voteCount}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Get Picture', `${usedPrefix}get ${one}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'katailham') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/katailham?apikey=MIMINGANZ`)
@@ -522,13 +522,13 @@ Hasil: ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'kompas') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/kompas?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
-let teks = x.map(v => {
+let v = xx.result
+let teks = v.map(v => {
 return `
 📌 *${v.url}*
 title: ${v.title}
@@ -539,7 +539,7 @@ jenis: ${v.jenis}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, `${v.img}`, [
                 ['Search!', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'lirik') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -551,7 +551,7 @@ Hasil: ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Get Picture', `${usedPrefix}get ${one}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'loli') {
 let img = `https://leyscoders-api.herokuapp.com/api/loli?apikey=MIMINGANZ`
@@ -560,21 +560,21 @@ Hasil: ${args[0]}
 `
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'mediafire') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/mediafire?url=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 judul: ${x.judul}
 size: ${x.size}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Get', `${usedPrefix}get ${x.download}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'memeindo') {
 let img = `https://leyscoders-api.herokuapp.com/api/memeindo?apikey=MIMINGANZ`
@@ -583,15 +583,15 @@ Hasil: ${args[0]}
 `
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'moddroid') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/moddroid?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
-let teks = x.map(v => {
+let v = xx.result
+let teks = v.map(v => {
 return `
 📌 *${v.url}*
 title: ${v.title}
@@ -600,7 +600,7 @@ title: ${v.title}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, `${v.img}`, [
                 ['Search!', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'nabi') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -618,7 +618,7 @@ kisah: ${x.kisah}
 `
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get Picture', `${usedPrefix}get ${one}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'nekonime') {
 let img = `https://leyscoders-api.herokuapp.com/api/nekonime?apikey=MIMINGANZ`
@@ -627,7 +627,7 @@ Hasil: ${args[0]}
 `
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'epep') {
 let ff = await fetch(`https://leyscoders-api.herokuapp.com/api/nick-epep?apikey=MIMINGANZ`)
@@ -637,7 +637,7 @@ Hasil: ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'nik') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |12345678`)
@@ -663,13 +663,13 @@ zodiak: ${x.result.tambahan.zodiak}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Menu', `${usedPrefix}menu`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'okezone') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/okezone?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
-let teks = x.map(v => {
+let v = xx.result
+let teks = v.map(v => {
 return `
 📌 *${v.title}*
 kickoff: ${v.url}
@@ -678,13 +678,13 @@ kickoff: ${v.url}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, null, [
                 ['Search!', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'otakuon') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/otakudesu-ongoing?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
-let teks = x.map(v => {
+let v = xx.result
+let teks = v.map(v => {
 return `
 📌 *${v.judul}*
 eps: ${v.eps}
@@ -695,13 +695,13 @@ tgl: ${v.tgl}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, v.thumb, [
                 ['Search!', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'otakunews') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/otakunews?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
-let teks = x.map(v => {
+let v = xx.result
+let teks = v.map(v => {
 return `
 📌 *${v.url}*
 title: ${v.title}
@@ -710,7 +710,7 @@ title: ${v.title}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, `${v.img}`, [
                 ['Search!', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'pakboy') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/pantun-pakboy?apikey=MIMINGANZ`)
@@ -720,7 +720,7 @@ ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'persegi') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/persegi?sisi=${args[1]}&apikey=MIMINGANZ`)
@@ -733,7 +733,7 @@ hasil_luas: ${x.hasil_luas}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'pin') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -743,7 +743,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'playmp3') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -758,7 +758,7 @@ published: ${x.result.published}
 `
 await conn.sendButton(m.chat, caption, wm, x.result.thumb, [
                 ['Next', `${usedPrefix}get ${x.result.audio}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'playmp4') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -773,17 +773,17 @@ published: ${x.result.published}
 `
 await conn.sendButton(m.chat, caption, wm, x.result.thumb, [
                 ['Next', `${usedPrefix}get ${x.result.audio}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'ppcouple') {
 let res = await fetch(`https://leyscoders-api.herokuapp.com/api/ppcouple?apikey=MIMINGANZ`)
 let json = await res.json()
 await conn.sendButton(m.chat, caption, wm, x.result.male, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 await conn.sendButton(m.chat, caption, wm, x.result.female, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'quotemaker') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -791,18 +791,18 @@ if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 let img = `https://leyscoders-api.herokuapp.com/api/quote-maker?text=${one}&apikey=MIMINGANZ`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'randomwaifu') {
 let img = `https://leyscoders-api.herokuapp.com/api/random-waifu?apikey=MIMINGANZ`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'randomquran') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/randomquran?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 nama: ${x.nama}
 arti: ${x.arti}
@@ -815,14 +815,14 @@ ket: ${x.ket}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Get', `${usedPrefix}get ${x.audio}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'rexdlsearch') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/rexdl-search?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 title: ${x.title}
 url: ${x.url}
@@ -831,14 +831,14 @@ desc: ${x.desc}
 `
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get', `${usedPrefix}rexdldetail ${x.url}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'rexdldetail') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/rexdl-detail?url=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 title: ${x.title}
 poster: ${x.poster}
@@ -849,15 +849,15 @@ desc: ${x.desc}
 `
 await conn.sendButton(m.chat, caption, wm, x.img, [
                 ['Get', `${usedPrefix}get ${args[1]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'sfile') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/sfile?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
-let teks = x.map(v => {
+let v = xx.result
+let teks = v.map(v => {
 return `
 📌 *${v.title}*
 size: ${v.size}
@@ -867,14 +867,14 @@ url: ${v.url}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, null, [
                 ['Search!', `${usedPrefix + command} ${args[0]} ${one}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'shopee') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/shopee?q=${one}&apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
+let v = xx.result
 let caption = `*Result:*
 judul: ${x.judul}
 harga: ${x.harga}
@@ -885,7 +885,7 @@ terjual: ${x.terjual}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Get', `${usedPrefix}shopee ${args[1]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'shrturl') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -897,13 +897,13 @@ judul: ${x.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix}shrturl ${one}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'sindoin') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/sindo/international?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
-let teks = x.map(v => {
+let v = xx.result
+let teks = v.map(v => {
 return `
 📌 *${v.judul}*
 link: ${v.link}
@@ -915,13 +915,13 @@ kutipan: ${v.kutipan}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu!', `${usedPrefix}menu`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'sindonas') {
 let f = await fetch(`https://leyscoders-api.herokuapp.com/api/sindo/nasional?apikey=MIMINGANZ`)
 let xx = await f.json()
-let x = xx.result
-let teks = x.map(v => {
+let v = xx.result
+let teks = v.map(v => {
 return `
 📌 *${v.judul}*
 link: ${v.link}
@@ -933,7 +933,7 @@ kutipan: ${v.kutipan}
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu!', `${usedPrefix}menu`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'sshp') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -941,7 +941,7 @@ if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 let img = `https://leyscoders-api.herokuapp.com/api/ssweb-hp?url=${one}&apikey=MIMINGANZ`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'ttimg') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -949,7 +949,7 @@ if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
 let img = `https://leyscoders-api.herokuapp.com/api/textto-image?text=${one}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Sticker', `${usedPrefix}sticker`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'yts') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -969,7 +969,7 @@ timestamp: ${x.result[0].timestamp}
 `
 await conn.sendButton(m.chat, caption, wm, `${x.result[0].thumb}`, [
                 ['Get', `${usedPrefix}ytmp4 ${x.result[0].url}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'ytdl') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -989,7 +989,7 @@ source: ${x.result[0].source}
 await conn.sendButton(m.chat, caption, wm, `${x.result[0].thumb}`, [
                 ['Aud', `${usedPrefix}get ${x.result[0].url_audio}`],
                 ['Vid', `${usedPrefix}get ${x.result[0].url_video}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'ytmp3') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -1009,7 +1009,7 @@ source: ${x.result[0].source}
 `
 await conn.sendButton(m.chat, caption, wm, `${x.result[0].thumb}`, [
                 ['Get', `${usedPrefix}ytmp4 ${x.result[0].url}`]
-            ], frx)
+            ], m, fdoc)
 }
 if (args[0] == 'ytmp4') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -1029,7 +1029,7 @@ source: ${x.result[0].source}
 `
 await conn.sendButton(m.chat, caption, wm, `${x.result[0].thumb}`, [
                 ['Get', `${usedPrefix}ytmp4 ${x.result[0].url_video}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 }

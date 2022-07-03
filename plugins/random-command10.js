@@ -4,8 +4,8 @@ import fs from 'fs'
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
-let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif', 'fdoc']
-let frx = frnya.getRandom()
+//let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif', 'fdoc']
+//let frx = frnya.getRandom()
 
 let imgr = flaaa.getRandom()
 
@@ -15,7 +15,7 @@ let res = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${text}
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
                 ['Get Picture', `${usedPrefix}get ${res}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'catboys') {
@@ -40,7 +40,7 @@ let x = await f.json()
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${x.catboy}`, wm, null, [
                 ['Awkawk', `${usedPrefix}tts ${x.catboy}`]
-            ], frx)
+            ], m, fdoc)
 }
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
 ${usedPrefix + command} img
@@ -49,7 +49,7 @@ ${usedPrefix + command} catboy
 `, wm, null, [
                 ['IMG', `${usedPrefix + command} img`],
                 ['8BALL', `${usedPrefix + command} 8ball`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'animals') {
@@ -71,7 +71,7 @@ await conn.sendButton(m.chat, `*Result:*
 *ID:* ${x.id}
 `, wm, x.image_link, [
                 ['Get Picture', `${usedPrefix}get ${x.image_link}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'nekos') {
@@ -129,7 +129,7 @@ await conn.sendFile(m.chat, x.url, 'out.gif', m, false, { mimetype: 'image/gif',
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, null, [
                 ['Next Picture', `${usedPrefix + command} ${args[0]}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'crafatar') {
@@ -138,7 +138,7 @@ let res = `https://crafatar.com/avatars/${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
                 ['Get Picture', `${usedPrefix}get ${res}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'crafatar2') {
@@ -147,7 +147,7 @@ let res = `https://crafatar.com/renders/head/${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
                 ['Get Picture', `${usedPrefix}get ${res}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'crafatar3') {
@@ -156,7 +156,7 @@ let res = `https://crafatar.com/renders/body/${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
                 ['Get Picture', `${usedPrefix}get ${res}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'crafatar4') {
@@ -165,7 +165,7 @@ let res = `https://crafatar.com/skins/${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
                 ['Get Picture', `${usedPrefix}get ${res}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'crafatar5') {
@@ -174,7 +174,7 @@ let res = `https://crafatar.com/capes/${text}`
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
                 ['Get Picture', `${usedPrefix}get ${res}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'lmsea') {
@@ -185,7 +185,7 @@ let ran = json.results
 await conn.sendButton(m.chat, `*Result:*
   ${ran.image_name}`, wm, ran.getRandom(), [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], frx)
+            ], m, fdoc)
 }
 
 if (command == 'iqrax') {
@@ -249,7 +249,7 @@ ${arab}
 ${id}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Menu', `${usedPrefix}menu`]
-            ], frx)
+            ], m, fdoc)
 
 		} catch (e) {
 		m.reply(`Hadith Not Found !`)
@@ -296,7 +296,7 @@ let charaingfo = `💬 *Name:* ${name}
 👤 *Character Type*: ${type}`
 await conn.sendButton(m.chat, charaingfo, wm, image_url, [
                 ['Menu', `${usedPrefix}menu`]
-            ], frx)
+            ], m, fdoc)
   conn.sendFile(m.chat, image_url, '', charaingfo, m)
 }
 
