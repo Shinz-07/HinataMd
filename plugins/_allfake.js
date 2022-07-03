@@ -53,9 +53,9 @@ handler.all = async function (m) {
 		}
 		global.fakeig = {
          contextInfo: { externalAdReply: { showAdAttribution: true,
-            mediaUrl: "https://Instagram.com/bot_whangsaf",
+            mediaUrl: "https://Instagram.com/wudysoft.2",
             mediaType: "VIDEO",
-            description: "https://Instagram.com/bot_whangsaf", 
+            description: "https://Instagram.com/wudysoft.2",
             title: 'Hinata-Md',
             body: wm,
             thumbnailUrl: pp,
@@ -96,7 +96,7 @@ handler.all = async function (m) {
            }
                
                   global.fliveLoc2 = {
-            key: { 
+            key: {
             participant : '0@s.whatsapp.net'},
             message: { "liveLocationMessage": { "title": "Hinata-Md","h": wm, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')}}
            }
@@ -136,13 +136,12 @@ handler.all = async function (m) {
                
                     global.fgclink = {
            key: {
-               participant: "0@s.whatsapp.net"
-           },
+               participant : '0@s.whatsapp.net'},
            message: {
                groupInviteMessage: {
                    groupJid: "17608914335-1625305606@g.us",
                    inviteCode: null,
-                   groupName: "Kawan Hinata-Md", 
+                   groupName: wm, 
                    caption: wm, 
                    jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
                }
