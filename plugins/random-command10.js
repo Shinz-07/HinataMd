@@ -4,6 +4,8 @@ import fs from 'fs'
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
+let floc = {quoted:{key: {participant : '0@s.whatsapp.net'},message: { "liveLocationMessage": { "caption": `Cmd: ${command}` ,"h": `${wm}`, 'jpegThumbnail': fs.readFileSync('./thumbnail.jpg')}}}}
+
 //let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif', 'fdoc']
 //let frx = frnya.getRandom()
 
@@ -71,7 +73,7 @@ await conn.sendButton(m.chat, `*Result:*
 *ID:* ${x.id}
 `, wm, x.image_link, [
                 ['Get Picture', `${usedPrefix}get ${x.image_link}`]
-            ], m, fdoc)
+            ], m, floc)
 }
 
 if (command == 'nekos') {

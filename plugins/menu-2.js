@@ -3,6 +3,7 @@ import FormData from 'form-data'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
+let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 //let frnya = ['ftroli', 'fkontak', 'fvn', 'ftextt', 'fliveLoc', 'ftoko', 'fdocs', 'fgclink', 'fgif']
 //let frx = frnya.getRandom()
 
